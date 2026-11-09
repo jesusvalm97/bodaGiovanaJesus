@@ -1,0 +1,694 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Nuestra boda: Giovana y Jesús</title>
+<meta name="description" content="Abre tu invitación y confirma tu asistencia.">
+<meta property="og:title" content="Nuestra boda: Giovana y Jesús">
+<meta property="og:description" content="Abre tu invitación y confirma tu asistencia.">
+<meta property="og:type" content="website">
+<meta name="theme-color" content="#F6F3F9" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#1B1525" media="(prefers-color-scheme: dark)">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%F0%9F%92%9C%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Alegreya+Sans:ital,wght@0,400;0,500;0,700;1,400&family=Italiana&display=swap" rel="stylesheet">
+<style>
+  :root {
+    color-scheme: light dark;
+    --paper: #F6F3F9;
+    --ink: #2B2140;
+    --muted: #6E6480;
+    --jacaranda: #6F4FA0;
+    --lavanda: #9479C2;
+    --bloom: #C4B1E2;
+    --leaf: #6C8A5B;
+    --branch: #4A3B5C;
+    --line: #DCD3E8;
+    --error: #A3261E;
+    --display: "Italiana", "Didot", "Bodoni 72", Georgia, serif;
+    --text: "Alegreya Sans", "Segoe UI", system-ui, -apple-system, sans-serif;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --paper: #1B1525;
+      --ink: #EDE7F5;
+      --muted: #A99EBB;
+      --jacaranda: #B79BE3;
+      --lavanda: #8E72BF;
+      --bloom: #5A4680;
+      --leaf: #8FAE7E;
+      --branch: #9C8CB2;
+      --line: #3A2F4D;
+      --error: #F2A099;
+    }
+  }
+
+  *, *::before, *::after { box-sizing: border-box; }
+  [hidden] { display: none !important; }
+  html { -webkit-text-size-adjust: 100%; }
+  body {
+    margin: 0;
+    background: var(--paper);
+    color: var(--ink);
+    font-family: var(--text);
+    font-size: 1.125rem;
+    line-height: 1.55;
+    padding: env(safe-area-inset-top, 0px) env(safe-area-inset-right, 0px)
+             env(safe-area-inset-bottom, 0px) env(safe-area-inset-left, 0px);
+  }
+  main { max-width: 34rem; margin: 0 auto; padding: 0 1.5rem 4rem; text-align: center; }
+  h1, h2, h3 { margin: 0; font-family: var(--display); font-weight: 400; }
+  p { margin: 0; }
+  a { color: var(--jacaranda); text-underline-offset: .2em; }
+  a:focus-visible { outline: 2px solid var(--jacaranda); outline-offset: 3px; border-radius: 2px; }
+
+  .aviso-demo { padding: .6rem 1.25rem; background: var(--bloom); color: var(--ink); font-size: .9375rem; text-align: center; }
+
+  /* Portada */
+  .ramo { display: block; width: calc(100% + 3rem); height: auto; margin: 0 -1.5rem; }
+  .rama { fill: none; stroke: var(--branch); stroke-linecap: round; opacity: .55; }
+  .hojas { color: var(--leaf); opacity: .8; }
+  .c1 { color: var(--jacaranda); }
+  .c2 { color: var(--lavanda); }
+  .c3 { color: var(--bloom); }
+  .anuncio { margin-top: .5rem; font-size: 1.25rem; font-style: italic; color: var(--muted); }
+  .nombres { margin-top: .5rem; font-size: clamp(3.75rem, 17vw, 6.25rem); line-height: .95; letter-spacing: .01em; }
+  .nombres span { display: block; }
+  .nombres .y { font-family: var(--text); font-size: .36em; font-style: italic; line-height: 1.5; color: var(--muted); }
+  .fecha { margin-top: 1.5rem; font-size: 1.25rem; }
+  .cuenta { margin-top: .25rem; font-size: 1rem; color: var(--muted); }
+  .fecha:empty, .cuenta:empty { display: none; }
+
+  .separador { display: flex; align-items: center; gap: .75rem; margin: 2.75rem 0 2.25rem; color: var(--lavanda); }
+  .separador::before, .separador::after { content: ""; flex: 1; height: 1px; background: var(--line); }
+  .separador svg { flex: none; width: 18px; height: 18px; }
+
+  .carga, .error { margin-top: 3rem; color: var(--muted); }
+
+  /* Saludo */
+  .invitado, .titulo { font-size: clamp(2.125rem, 9vw, 2.75rem); line-height: 1.1; }
+  .saludo p { margin-top: .75rem; }
+
+  /* Detalles */
+  .lugares { display: grid; gap: 2rem; }
+  @media (min-width: 30rem) { .lugares { grid-template-columns: repeat(auto-fit, minmax(12rem, 1fr)); } }
+  .lugar h3 { font-size: 1.75rem; line-height: 1.2; }
+  .lugar p { margin-top: .25rem; }
+  .lugar .hora { font-size: 1.25rem; font-weight: 500; }
+  .lugar .direccion { font-size: 1rem; color: var(--muted); }
+  .vestimenta { margin-top: 2rem; }
+
+  /* Formulario */
+  fieldset { min-width: 0; margin: 0; padding: 0; border: 0; }
+  .opciones { display: grid; gap: .75rem; margin-top: 1.5rem; }
+  @media (min-width: 26rem) { .opciones { grid-template-columns: 1fr 1fr; } }
+  .opcion, .chip { position: relative; display: block; cursor: pointer; }
+  .opcion input, .chip input { position: absolute; inset: 0; width: 100%; height: 100%; margin: 0; opacity: 0; cursor: pointer; }
+  .opcion span {
+    display: block; padding: .85rem 1rem; border: 1.5px solid var(--jacaranda); border-radius: 999px;
+    color: var(--jacaranda); font-weight: 500; transition: background-color .2s, color .2s;
+  }
+  .opcion input:checked + span { background: var(--jacaranda); color: var(--paper); }
+  .opcion input:focus-visible + span,
+  .chip input:focus-visible + span { outline: 2px solid var(--ink); outline-offset: 3px; }
+
+  .cantidad { margin-top: 2rem; }
+  .cantidad legend { display: block; width: 100%; margin-bottom: .75rem; padding: 0; text-align: center; }
+  .chips { display: flex; flex-wrap: wrap; justify-content: center; gap: .5rem; }
+  .chip span { display: block; min-width: 2.75rem; padding: .4rem .95rem; border: 1px solid var(--line); border-radius: 999px; }
+  .chip input:checked + span { background: var(--bloom); border-color: var(--bloom); }
+
+  .campos { display: grid; gap: 1.25rem; margin-top: 1.75rem; text-align: left; }
+  .campos:empty { display: none; }
+  .campo label { display: block; font-size: .9375rem; color: var(--muted); }
+  .campo input {
+    width: 100%; padding: .4rem 0; font: inherit; color: var(--ink); background: transparent;
+    border: 0; border-bottom: 1.5px solid var(--line); border-radius: 0;
+  }
+  .campo input:focus { outline: none; border-bottom-color: var(--jacaranda); box-shadow: 0 1.5px 0 var(--jacaranda); }
+  .campo input[aria-invalid="true"] { border-bottom-color: var(--error); }
+
+  .boton {
+    display: block; width: 100%; margin-top: 2rem; padding: .95rem 1.5rem; font: inherit; font-weight: 700;
+    color: var(--paper); background: var(--ink); border: 0; border-radius: 999px; cursor: pointer;
+  }
+  .boton:disabled { opacity: .6; cursor: progress; }
+  .boton:focus-visible { outline: 2px solid var(--jacaranda); outline-offset: 3px; }
+  .boton.secundario {
+    display: inline-block; width: auto; margin-top: 1.5rem; padding: .65rem 1.5rem; font-weight: 500;
+    color: var(--jacaranda); background: transparent; border: 1.5px solid var(--jacaranda);
+  }
+
+  .nota { margin-top: 1rem; font-size: 1rem; color: var(--muted); }
+  .nota:empty { display: none; }
+  .mensaje { margin-top: 1rem; color: var(--error); }
+
+  .resumen { margin-top: 1.5rem; }
+  .resumen-titulo { font-family: var(--display); font-size: 1.75rem; line-height: 1.2; }
+  .resumen-titulo:focus { outline: none; }
+  .resumen-texto { margin-top: .75rem; }
+
+  /* Cierre */
+  .cierre { padding-bottom: 1rem; }
+  .firma { margin-top: .25rem; font-family: var(--display); font-size: 2rem; }
+  .completos { margin-top: .5rem; font-size: .9375rem; color: var(--muted); }
+  .completos:empty { display: none; }
+
+  .sr { position: absolute; width: 1px; height: 1px; margin: -1px; padding: 0; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0; }
+
+  /* Lluvia de flores al confirmar */
+  .lluvia { position: fixed; inset: 0; z-index: 10; overflow: hidden; pointer-events: none; }
+  .petalo { position: absolute; top: -40px; animation: caer var(--dur) cubic-bezier(.35, .1, .65, 1) var(--delay) forwards; }
+  .petalo svg { display: block; width: 100%; height: 100%; animation: mecer 1.4s ease-in-out infinite alternate; }
+  @keyframes caer { to { transform: translateY(calc(100vh + 80px)) rotate(var(--giro)); } }
+  @keyframes mecer { from { transform: translateX(-12px); } to { transform: translateX(12px); } }
+  @media (prefers-reduced-motion: reduce) { .opcion span { transition: none; } }
+</style>
+</head>
+<body>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+  <symbol id="flor" viewBox="-10 -10 20 20">
+    <g fill="currentColor">
+      <circle cx="0" cy="-4.6" r="4.4"/>
+      <circle cx="0" cy="-4.6" r="4.4" transform="rotate(72)"/>
+      <circle cx="0" cy="-4.6" r="4.4" transform="rotate(144)"/>
+      <circle cx="0" cy="-4.6" r="4.4" transform="rotate(216)"/>
+      <circle cx="0" cy="-4.6" r="4.4" transform="rotate(288)"/>
+    </g>
+    <circle r="1.8" fill="#fff" fill-opacity=".55"/>
+  </symbol>
+  <symbol id="fronda" viewBox="0 -7 64 14">
+    <path d="M0 0H60" stroke="currentColor" stroke-width=".8" fill="none"/>
+    <g fill="currentColor">
+      <ellipse cx="8" cy="-3" rx="3.4" ry="1.4" transform="rotate(-35 8 -3)"/>
+      <ellipse cx="8" cy="3" rx="3.4" ry="1.4" transform="rotate(35 8 3)"/>
+      <ellipse cx="15" cy="-3" rx="3.4" ry="1.4" transform="rotate(-35 15 -3)"/>
+      <ellipse cx="15" cy="3" rx="3.4" ry="1.4" transform="rotate(35 15 3)"/>
+      <ellipse cx="22" cy="-3" rx="3.3" ry="1.4" transform="rotate(-35 22 -3)"/>
+      <ellipse cx="22" cy="3" rx="3.3" ry="1.4" transform="rotate(35 22 3)"/>
+      <ellipse cx="29" cy="-3" rx="3.2" ry="1.3" transform="rotate(-35 29 -3)"/>
+      <ellipse cx="29" cy="3" rx="3.2" ry="1.3" transform="rotate(35 29 3)"/>
+      <ellipse cx="36" cy="-2.8" rx="3" ry="1.3" transform="rotate(-35 36 -2.8)"/>
+      <ellipse cx="36" cy="2.8" rx="3" ry="1.3" transform="rotate(35 36 2.8)"/>
+      <ellipse cx="43" cy="-2.6" rx="2.8" ry="1.2" transform="rotate(-35 43 -2.6)"/>
+      <ellipse cx="43" cy="2.6" rx="2.8" ry="1.2" transform="rotate(35 43 2.6)"/>
+      <ellipse cx="50" cy="-2.4" rx="2.5" ry="1.1" transform="rotate(-35 50 -2.4)"/>
+      <ellipse cx="50" cy="2.4" rx="2.5" ry="1.1" transform="rotate(35 50 2.4)"/>
+      <ellipse cx="57" cy="-2" rx="2.2" ry="1" transform="rotate(-35 57 -2)"/>
+      <ellipse cx="57" cy="2" rx="2.2" ry="1" transform="rotate(35 57 2)"/>
+      <ellipse cx="61.5" cy="0" rx="2.2" ry="1"/>
+    </g>
+  </symbol>
+</svg>
+
+<p class="aviso-demo" id="aviso-demo" hidden>Vista de prueba con datos de ejemplo. Pega la URL de tu Apps Script en API_URL para conectarla a tu hoja.</p>
+
+<main>
+  <header>
+    <svg class="ramo" viewBox="0 0 400 150" aria-hidden="true" focusable="false">
+      <path class="rama" stroke-width="2.4" d="M-10 72 C 55 62, 105 96, 170 84 S 285 40, 410 60"/>
+      <path class="rama" stroke-width="1.3" d="M89 80 C 94 62, 90 46, 84 34"/>
+      <path class="rama" stroke-width="1.3" d="M170 84 C 176 100, 188 112, 200 120"/>
+      <path class="rama" stroke-width="1.3" d="M267 60 C 268 44, 272 32, 280 22"/>
+      <path class="rama" stroke-width="1.3" d="M343 54 C 350 68, 360 78, 370 84"/>
+      <path class="rama" stroke-width="1.3" d="M36 71 C 30 58, 22 50, 12 44"/>
+      <g class="hojas">
+        <use href="#fronda" x="0" y="-5.5" width="50" height="11" transform="translate(54 74) rotate(160)"/>
+        <use href="#fronda" x="0" y="-5.5" width="50" height="11" transform="translate(124 86) rotate(105)"/>
+        <use href="#fronda" x="0" y="-5.5" width="50" height="11" transform="translate(160 85) rotate(-55)"/>
+        <use href="#fronda" x="0" y="-5.5" width="50" height="11" transform="translate(217 72) rotate(75)"/>
+        <use href="#fronda" x="0" y="-5.5" width="50" height="11" transform="translate(250 64) rotate(205)"/>
+        <use href="#fronda" x="0" y="-5.5" width="50" height="11" transform="translate(302 55) rotate(-25)"/>
+      </g>
+      <g id="flores"></g>
+    </svg>
+    <p class="anuncio">Nos casamos</p>
+    <h1 class="nombres"><span>Giovana</span><span class="y">&amp;</span><span>Jesús</span></h1>
+    <p class="fecha" id="fecha"></p>
+    <p class="cuenta" id="cuenta"></p>
+  </header>
+
+  <p class="carga" id="carga" role="status">Cargando tu invitación…</p>
+  <p class="error" id="error" role="alert" hidden></p>
+
+  <div id="contenido" hidden>
+    <section class="saludo" aria-labelledby="nombre-invitado">
+      <div class="separador" aria-hidden="true"><svg viewBox="-10 -10 20 20"><use href="#flor" x="-10" y="-10" width="20" height="20"/></svg></div>
+      <h2 class="invitado" id="nombre-invitado"></h2>
+      <p>Nos encantaría celebrar este día contigo.</p>
+      <p id="texto-cupo"></p>
+    </section>
+
+    <section id="detalles" aria-label="Detalles del evento" hidden>
+      <div class="separador" aria-hidden="true"><svg viewBox="-10 -10 20 20"><use href="#flor" x="-10" y="-10" width="20" height="20"/></svg></div>
+      <div class="lugares" id="lugares"></div>
+      <p class="vestimenta" id="vestimenta" hidden></p>
+    </section>
+
+    <section aria-labelledby="titulo-confirmacion">
+      <div class="separador" aria-hidden="true"><svg viewBox="-10 -10 20 20"><use href="#flor" x="-10" y="-10" width="20" height="20"/></svg></div>
+      <h2 class="titulo" id="titulo-confirmacion">¿Nos acompañas?</h2>
+
+      <form id="formulario" novalidate hidden>
+        <fieldset class="opciones">
+          <legend class="sr">¿Asistirás a la boda?</legend>
+          <label class="opcion"><input type="radio" name="asiste" value="Sí"><span>Sí, ahí estaré</span></label>
+          <label class="opcion"><input type="radio" name="asiste" value="No"><span>No podré asistir</span></label>
+        </fieldset>
+
+        <div id="bloque-acompanantes" hidden>
+          <fieldset class="cantidad">
+            <legend>¿Cuántos acompañantes vienen contigo?</legend>
+            <div class="chips" id="chips"></div>
+          </fieldset>
+          <div class="campos" id="campos-nombres"></div>
+        </div>
+
+        <button type="submit" class="boton" id="boton-enviar">Enviar respuesta</button>
+        <p class="nota" id="nota-limite"></p>
+      </form>
+
+      <div class="resumen" id="resumen" hidden>
+        <p class="resumen-titulo" id="resumen-titulo" tabindex="-1"></p>
+        <p class="resumen-texto" id="resumen-texto"></p>
+        <p class="nota" id="nota-resumen"></p>
+        <button type="button" class="boton secundario" id="boton-cambiar">Cambiar mi respuesta</button>
+      </div>
+
+      <p class="mensaje" id="mensaje" role="status" aria-live="polite"></p>
+    </section>
+  </div>
+
+  <footer class="cierre">
+    <div class="separador" aria-hidden="true"><svg viewBox="-10 -10 20 20"><use href="#flor" x="-10" y="-10" width="20" height="20"/></svg></div>
+    <p>Con cariño,</p>
+    <p class="firma">Giovana y Jesús</p>
+    <p class="completos" id="completos"></p>
+  </footer>
+</main>
+
+<script>
+  // ===================== CONFIGURA AQUÍ =====================
+  // URL de tu Apps Script (la que termina en /exec).
+  const API_URL = 'https://script.google.com/macros/s/AKfycbwaWmzQ-36oIoXhq962oIXuYwXIUqZ-z98ME8hanJaXWT_qzaaWG0-7FmCmYak0qbc/exec';
+
+  // Datos del evento. Una sección sin "lugar" no se muestra.
+  // "mapa" es el link de Google Maps del lugar.
+  const EVENTO = {
+    lugares: [
+      { titulo: 'Ceremonia Religiosa', hora: '6:00 p.m.', lugar: 'Templo de Nuestra Señora del Carmen', direccion: 'Del Carmen 116, Zona Centro, 44100 Guadalajara, Jal.', mapa: 'https://maps.app.goo.gl/FfFfnP4z1nLsrkTRA' },
+      { titulo: 'Ceremonia Civil & Recepción', hora: '8:30 p.m.', lugar: 'Jardín Getsemaní', direccion: 'C. Clio 2350, Fovissste Estadio, 44240 Guadalajara, Jal.', mapa: 'https://maps.app.goo.gl/tzhSDMaziN4mZt3Y7' }
+    ],
+    vestimenta: '' // ej. 'Formal'
+  };
+  // ==========================================================
+
+  const MODO_DEMO = !API_URL.startsWith('https://script.google.com/');
+
+  const DEMO = {
+    ok: true,
+    nombre: 'Familia Ejemplo',
+    cupo: 2,
+    asiste: '',
+    acompanantes: [],
+    novios: 'Giovana de Jesús Rojas Pérez y Jesús Antero Varela Almanza',
+    fechaBoda: '2027-03-20',
+    fechaLimite: '2027-02-20',
+    cerrado: false
+  };
+  const LUGARES_DEMO = [
+    { titulo: 'Ceremonia Religiosa', hora: '6:00 p.m.', lugar: 'Templo de Nuestra Señora del Carmen', direccion: 'Del Carmen 116, Zona Centro, 44100 Guadalajara, Jal.', mapa: 'https://maps.app.goo.gl/FfFfnP4z1nLsrkTRA' },
+    { titulo: 'Ceremonia Civil & Recepción', hora: '8:30 p.m.', lugar: 'Jardín Getsemaní', direccion: 'C. Clio 2350, Fovissste Estadio, 44240 Guadalajara, Jal.', mapa: 'https://maps.app.goo.gl/tzhSDMaziN4mZt3Y7' }
+  ];
+
+  // Flores del ramo de jacaranda: [x, y, tamaño, tono, giro]
+  const FLORES = [
+    [84, 32, 15, 1, 0], [96, 28, 13, 2, 20], [74, 26, 12, 3, 40], [90, 42, 12, 3, 10],
+    [78, 41, 11, 2, 50], [86, 18, 11, 1, 30], [100, 40, 10, 1, 15], [69, 35, 9, 2, 0],
+    [200, 120, 14, 2, 10], [212, 128, 12, 1, 40], [189, 129, 11, 3, 20], [209, 111, 11, 3, 0], [197, 139, 9, 1, 30],
+    [282, 20, 15, 1, 25], [294, 27, 12, 3, 5], [270, 14, 12, 2, 45], [276, 31, 11, 2, 15],
+    [291, 10, 10, 3, 35], [302, 17, 9, 1, 0], [265, 26, 9, 1, 20],
+    [372, 86, 14, 2, 0], [384, 79, 12, 1, 30], [362, 95, 11, 3, 15], [381, 97, 10, 3, 40], [358, 79, 9, 1, 10],
+    [12, 42, 13, 1, 20], [23, 36, 11, 3, 0], [5, 31, 10, 2, 35], [19, 52, 9, 2, 10],
+    [140, 118, 7, 3, 30], [244, 104, 6, 2, 10], [322, 130, 7, 1, 50], [52, 114, 6, 3, 20]
+  ];
+
+  const DIAS = ['domingo', 'lunes', 'martes', 'miércoles', 'jueves', 'viernes', 'sábado'];
+  const MESES = ['enero', 'febrero', 'marzo', 'abril', 'mayo', 'junio', 'julio',
+                 'agosto', 'septiembre', 'octubre', 'noviembre', 'diciembre'];
+
+  const $ = id => document.getElementById(id);
+
+  let inv = null;            // datos de la invitación
+  let token = '';
+  let nombresEscritos = [];  // conserva lo escrito al cambiar la cantidad
+
+  pintarRamo();
+  iniciar();
+
+  document.querySelectorAll('input[name="asiste"]').forEach(radio =>
+    radio.addEventListener('change', () => { limpiarMensaje(); actualizarBloque(); }));
+  $('formulario').addEventListener('submit', enviarRespuesta);
+  $('boton-cambiar').addEventListener('click', () => {
+    mostrarFormulario();
+    (document.querySelector('input[name="asiste"]:checked') ||
+     document.querySelector('input[name="asiste"]')).focus();
+  });
+
+  /* ---------- Carga ---------- */
+
+  async function iniciar() {
+    if (MODO_DEMO) {
+      $('aviso-demo').hidden = false;
+      mostrar({ ...DEMO, acompanantes: [] });
+      return;
+    }
+    token = new URLSearchParams(location.search).get('t') || '';
+    if (!token) {
+      mostrarError('Este link no incluye tu invitación. Abre el link exacto que te enviamos por WhatsApp.');
+      return;
+    }
+    try {
+      const respuesta = await fetch(`${API_URL}?t=${encodeURIComponent(token)}`);
+      const datos = await respuesta.json();
+      if (!datos.ok) {
+        mostrarError(`${datos.error} Si el problema sigue, escríbenos.`);
+        return;
+      }
+      mostrar(datos);
+    } catch (err) {
+      mostrarError('No pudimos cargar tu invitación. Revisa tu conexión y vuelve a abrir el link.');
+    }
+  }
+
+  function mostrar(datos) {
+    inv = { ...datos, acompanantes: datos.acompanantes || [] };
+
+    const boda = aFecha(inv.fechaBoda);
+    if (boda) {
+      $('fecha').textContent = fechaLarga(boda);
+      const n = diasFaltantes(boda);
+      $('cuenta').textContent = n > 1 ? `Faltan ${n} días` : n === 1 ? 'Es mañana' : n === 0 ? 'Es hoy' : '';
+    }
+
+    $('nombre-invitado').textContent = inv.nombre;
+    $('texto-cupo').textContent =
+      inv.cupo === 0 ? 'Esta invitación es para ti.' :
+      inv.cupo === 1 ? 'Esta invitación es para ti y un acompañante.' :
+      `Esta invitación es para ti y hasta ${inv.cupo} acompañantes.`;
+    $('completos').textContent = inv.novios || '';
+
+    pintarLugares();
+    nombresEscritos = [...inv.acompanantes];
+
+    $('carga').hidden = true;
+    $('contenido').hidden = false;
+
+    if (inv.asiste) mostrarResumen(false);
+    else if (inv.cerrado) mostrarCerrado();
+    else mostrarFormulario();
+  }
+
+  function mostrarError(texto) {
+    $('carga').hidden = true;
+    $('error').textContent = texto;
+    $('error').hidden = false;
+  }
+
+  /* ---------- Detalles del evento ---------- */
+
+  function pintarLugares() {
+    let lugares = EVENTO.lugares.filter(l => l.lugar);
+    if (!lugares.length && MODO_DEMO) lugares = LUGARES_DEMO;
+
+    const contenedor = $('lugares');
+    contenedor.replaceChildren();
+    lugares.forEach(l => {
+      const bloque = document.createElement('div');
+      bloque.className = 'lugar';
+      agregar(bloque, 'h3', l.titulo);
+      if (l.hora) agregar(bloque, 'p', l.hora, 'hora');
+      agregar(bloque, 'p', l.lugar);
+      if (l.direccion) agregar(bloque, 'p', l.direccion, 'direccion');
+      if (l.mapa) {
+        const enlace = document.createElement('a');
+        enlace.href = l.mapa;
+        enlace.target = '_blank';
+        enlace.rel = 'noopener';
+        enlace.textContent = 'Cómo llegar';
+        agregar(bloque, 'p', '').appendChild(enlace);
+      }
+      contenedor.appendChild(bloque);
+    });
+
+    if (EVENTO.vestimenta) {
+      $('vestimenta').textContent = `Código de vestimenta: ${EVENTO.vestimenta}`;
+      $('vestimenta').hidden = false;
+    }
+    $('detalles').hidden = !lugares.length;
+  }
+
+  /* ---------- Formulario ---------- */
+
+  function mostrarFormulario() {
+    limpiarMensaje();
+    $('resumen').hidden = true;
+    $('formulario').hidden = false;
+
+    document.querySelectorAll('input[name="asiste"]').forEach(r => { r.checked = r.value === inv.asiste; });
+    if (inv.cupo > 0) pintarChips(inv.asiste === 'Sí' ? Math.min(inv.acompanantes.length, inv.cupo) : -1);
+    actualizarBloque();
+
+    const limite = aFecha(inv.fechaLimite);
+    $('nota-limite').textContent = limite ? `Por favor responde a más tardar el ${fechaCorta(limite)}.` : '';
+  }
+
+  function mostrarCerrado() {
+    $('formulario').hidden = true;
+    $('resumen').hidden = false;
+    $('resumen-titulo').textContent = 'El periodo para confirmar terminó';
+    $('resumen-texto').textContent = 'Si todavía quieres confirmar, escríbenos directamente.';
+    $('nota-resumen').textContent = '';
+    $('boton-cambiar').hidden = true;
+  }
+
+  function actualizarBloque() {
+    const elegido = document.querySelector('input[name="asiste"]:checked');
+    $('bloque-acompanantes').hidden = !(elegido && elegido.value === 'Sí' && inv.cupo > 0);
+  }
+
+  function pintarChips(seleccion) {
+    const contenedor = $('chips');
+    contenedor.replaceChildren();
+    for (let i = 0; i <= inv.cupo; i++) {
+      const etiqueta = document.createElement('label');
+      etiqueta.className = 'chip';
+      const radio = document.createElement('input');
+      radio.type = 'radio';
+      radio.name = 'cantidad';
+      radio.value = String(i);
+      radio.checked = i === seleccion;
+      radio.addEventListener('change', () => { limpiarMensaje(); pintarCampos(i); });
+      const texto = document.createElement('span');
+      texto.textContent = i === 0 ? 'Solo yo' : String(i);
+      etiqueta.append(radio, texto);
+      contenedor.appendChild(etiqueta);
+    }
+    pintarCampos(Math.max(seleccion, 0));
+  }
+
+  function pintarCampos(cantidad) {
+    guardarEscritos();
+    const contenedor = $('campos-nombres');
+    contenedor.replaceChildren();
+    for (let i = 0; i < cantidad; i++) {
+      const campo = document.createElement('div');
+      campo.className = 'campo';
+      const etiqueta = document.createElement('label');
+      etiqueta.htmlFor = `acompanante-${i}`;
+      etiqueta.textContent = `Nombre del acompañante ${i + 1}`;
+      const entrada = document.createElement('input');
+      entrada.id = `acompanante-${i}`;
+      entrada.type = 'text';
+      entrada.maxLength = 80;
+      entrada.autocomplete = 'off';
+      entrada.setAttribute('autocapitalize', 'words');
+      entrada.value = nombresEscritos[i] || '';
+      entrada.addEventListener('input', () => entrada.removeAttribute('aria-invalid'));
+      campo.append(etiqueta, entrada);
+      contenedor.appendChild(campo);
+    }
+  }
+
+  function guardarEscritos() {
+    document.querySelectorAll('#campos-nombres input').forEach((entrada, i) => {
+      nombresEscritos[i] = entrada.value;
+    });
+  }
+
+  async function enviarRespuesta(evento) {
+    evento.preventDefault();
+    limpiarMensaje();
+
+    const elegido = document.querySelector('input[name="asiste"]:checked');
+    if (!elegido) return mostrarMensaje('Elige si podrás acompañarnos.');
+
+    let acompanantes = [];
+    if (elegido.value === 'Sí' && inv.cupo > 0) {
+      if (!document.querySelector('input[name="cantidad"]:checked')) {
+        return mostrarMensaje('Elige cuántos acompañantes vienen contigo.');
+      }
+      const campos = [...document.querySelectorAll('#campos-nombres input')];
+      const vacio = campos.find(c => !c.value.trim());
+      if (vacio) {
+        vacio.setAttribute('aria-invalid', 'true');
+        vacio.focus();
+        return mostrarMensaje('Escribe el nombre de cada acompañante.');
+      }
+      acompanantes = campos.map(c => c.value.trim());
+    }
+
+    const boton = $('boton-enviar');
+    boton.disabled = true;
+    boton.textContent = 'Enviando…';
+    try {
+      const r = await enviar({ t: token, asiste: elegido.value, acompanantes });
+      if (!r.ok) return mostrarMensaje(r.error || 'No pudimos guardar tu respuesta. Inténtalo de nuevo.');
+      inv.asiste = r.asiste;
+      inv.acompanantes = r.acompanantes || [];
+      nombresEscritos = [...inv.acompanantes];
+      mostrarResumen(true);
+      if (r.asiste === 'Sí') lluviaDeFlores();
+    } catch (err) {
+      mostrarMensaje('No pudimos enviar tu respuesta. Revisa tu conexión e inténtalo de nuevo.');
+    } finally {
+      boton.disabled = false;
+      boton.textContent = 'Enviar respuesta';
+    }
+  }
+
+  async function enviar(cuerpo) {
+    if (MODO_DEMO) {
+      await new Promise(resolver => setTimeout(resolver, 700));
+      return { ok: true, asiste: cuerpo.asiste, acompanantes: cuerpo.acompanantes };
+    }
+    const respuesta = await fetch(API_URL, {
+      method: 'POST',
+      headers: { 'Content-Type': 'text/plain;charset=utf-8' }, // evita la verificación CORS previa
+      body: JSON.stringify(cuerpo)
+    });
+    return respuesta.json();
+  }
+
+  /* ---------- Resumen ---------- */
+
+  function mostrarResumen(recienEnviada) {
+    $('formulario').hidden = true;
+    $('resumen').hidden = false;
+
+    const titulo = $('resumen-titulo');
+    titulo.textContent = recienEnviada ? '¡Respuesta enviada!' : 'Ya recibimos tu respuesta';
+
+    let texto;
+    if (inv.asiste === 'Sí') {
+      const a = inv.acompanantes;
+      texto = a.length === 0
+        ? 'Confirmaste que asistirás.'
+        : `Confirmaste que asistirás con ${a.length === 1 ? 'tu acompañante' : `tus ${a.length} acompañantes`}: ${listaNombres(a)}.`;
+      texto += ' ¡Nos vemos ahí!';
+    } else {
+      texto = 'Nos avisaste que no podrás acompañarnos. Gracias por decirnos, te vamos a extrañar.';
+    }
+    $('resumen-texto').textContent = texto;
+
+    const limite = aFecha(inv.fechaLimite);
+    $('nota-resumen').textContent = inv.cerrado
+      ? 'El periodo para confirmar ya terminó.'
+      : limite ? `Puedes cambiar tu respuesta hasta el ${fechaCorta(limite)}.` : '';
+    $('boton-cambiar').hidden = !!inv.cerrado;
+
+    if (recienEnviada) titulo.focus();
+  }
+
+  function mostrarMensaje(texto) { $('mensaje').textContent = texto; }
+  function limpiarMensaje() { $('mensaje').textContent = ''; }
+
+  /* ---------- Ilustración ---------- */
+
+  function pintarRamo() {
+    const grupo = $('flores');
+    FLORES.forEach(([x, y, tam, tono, giro]) => {
+      const flor = document.createElementNS('http://www.w3.org/2000/svg', 'use');
+      flor.setAttribute('href', '#flor');
+      flor.setAttribute('x', x - tam / 2);
+      flor.setAttribute('y', y - tam / 2);
+      flor.setAttribute('width', tam);
+      flor.setAttribute('height', tam);
+      flor.setAttribute('class', `c${tono}`);
+      flor.setAttribute('transform', `rotate(${giro} ${x} ${y})`);
+      grupo.appendChild(flor);
+    });
+  }
+
+  function lluviaDeFlores() {
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    const lluvia = document.createElement('div');
+    lluvia.className = 'lluvia';
+    lluvia.setAttribute('aria-hidden', 'true');
+    for (let i = 0; i < 32; i++) {
+      const flor = document.createElement('span');
+      const tam = 12 + Math.random() * 14;
+      flor.className = `petalo c${(i % 3) + 1}`;
+      flor.style.cssText =
+        `left:${(Math.random() * 100).toFixed(1)}%;width:${tam.toFixed(0)}px;height:${tam.toFixed(0)}px;` +
+        `--dur:${(4 + Math.random() * 3).toFixed(2)}s;--delay:${(Math.random() * 1.5).toFixed(2)}s;` +
+        `--giro:${Math.round(Math.random() * 540 - 270)}deg`;
+      flor.innerHTML = '<svg viewBox="-10 -10 20 20"><use href="#flor" x="-10" y="-10" width="20" height="20"></use></svg>';
+      lluvia.appendChild(flor);
+    }
+    document.body.appendChild(lluvia);
+    setTimeout(() => lluvia.remove(), 9000);
+  }
+
+  /* ---------- Utilidades ---------- */
+
+  function agregar(padre, etiqueta, texto, clase) {
+    const el = document.createElement(etiqueta);
+    if (clase) el.className = clase;
+    el.textContent = texto;
+    padre.appendChild(el);
+    return el;
+  }
+
+  function aFecha(iso) {
+    const m = /^(\d{4})-(\d{2})-(\d{2})$/.exec(iso || '');
+    return m ? new Date(Number(m[1]), Number(m[2]) - 1, Number(m[3])) : null;
+  }
+
+  function fechaLarga(d) {
+    const dia = DIAS[d.getDay()];
+    return `${dia.charAt(0).toUpperCase()}${dia.slice(1)} ${d.getDate()} de ${MESES[d.getMonth()]} de ${d.getFullYear()}`;
+  }
+
+  function fechaCorta(d) {
+    return `${d.getDate()} de ${MESES[d.getMonth()]} de ${d.getFullYear()}`;
+  }
+
+  function diasFaltantes(d) {
+    const hoy = new Date();
+    hoy.setHours(0, 0, 0, 0);
+    return Math.round((d - hoy) / 86400000);
+  }
+
+  function listaNombres(a) {
+    if (a.length < 2) return a[0] || '';
+    const ultimo = a[a.length - 1];
+    const conjuncion = /^h?[ií](?![aeiouáéíóú])/i.test(ultimo) ? 'e' : 'y';
+    return `${a.slice(0, -1).join(', ')} ${conjuncion} ${ultimo}`;
+  }
+</script>
+</body>
+</html>
