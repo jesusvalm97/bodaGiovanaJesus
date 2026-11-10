@@ -1,0 +1,456 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-11-10T02:10:10+00:00",
+  "title": "Design System: Invitación de boda de Giovana y Jesús",
+  "extensions": {
+    "colorMeta": {
+      "noche": {
+        "role": "neutral",
+        "displayName": "Noche de jardín",
+        "canonical": "oklch(27.1% 0.087 283)",
+        "tonalRamp": [
+          "#0A0A14",
+          "#1F1F33",
+          "#363754",
+          "#585984",
+          "#7879B3",
+          "#9EA0CA",
+          "#C7C8E1",
+          "#EDEEF7"
+        ]
+      },
+      "noche-honda": {
+        "role": "neutral",
+        "displayName": "Noche honda",
+        "canonical": "oklch(23.5% 0.075 282)",
+        "tonalRamp": [
+          "#0A0A13",
+          "#1F2030",
+          "#373851",
+          "#58597F",
+          "#797BAC",
+          "#9FA1C6",
+          "#C7C9DE",
+          "#EDEEF6"
+        ]
+      },
+      "tinta": {
+        "role": "neutral",
+        "displayName": "Tinta de luna",
+        "canonical": "oklch(95.7% 0.015 312)",
+        "tonalRamp": [
+          "#0C0B0C",
+          "#232124",
+          "#3C393E",
+          "#605C62",
+          "#837E87",
+          "#A7A3A9",
+          "#CCC9CD",
+          "#EFEEEF"
+        ]
+      },
+      "tinta-2": {
+        "role": "neutral",
+        "displayName": "Tinta de luna tenue",
+        "canonical": "oklch(84.4% 0.045 298)",
+        "tonalRamp": [
+          "#0C0A0F",
+          "#23202A",
+          "#3C3847",
+          "#605970",
+          "#837B98",
+          "#A7A1B6",
+          "#CCC8D5",
+          "#EFEDF2"
+        ]
+      },
+      "blanco": {
+        "role": "neutral",
+        "displayName": "Papel blanco lila",
+        "canonical": "oklch(95.7% 0.015 312)",
+        "tonalRamp": [
+          "#0C0B0C",
+          "#232124",
+          "#3C393E",
+          "#605C62",
+          "#837E87",
+          "#A7A3A9",
+          "#CCC9CD",
+          "#EFEEEF"
+        ]
+      },
+      "lila": {
+        "role": "secondary",
+        "displayName": "Lila jacaranda",
+        "canonical": "oklch(80.1% 0.084 301)",
+        "tonalRamp": [
+          "#0D0913",
+          "#241E30",
+          "#3F3450",
+          "#64557E",
+          "#8974AB",
+          "#AB9DC4",
+          "#CEC6DD",
+          "#F0EDF6"
+        ]
+      },
+      "violeta": {
+        "role": "secondary",
+        "displayName": "Violeta de papel",
+        "canonical": "oklch(53.5% 0.175 297)",
+        "tonalRamp": [
+          "#0E061B",
+          "#261840",
+          "#412C68",
+          "#6848A1",
+          "#8E63DA",
+          "#AD93E8",
+          "#CFC1F3",
+          "#F0EBFE"
+        ]
+      },
+      "rosa": {
+        "role": "primary",
+        "displayName": "Rosa mexicano",
+        "canonical": "oklch(69.7% 0.169 2)",
+        "tonalRamp": [
+          "#19040A",
+          "#3B101F",
+          "#621F36",
+          "#973557",
+          "#CD4B78",
+          "#E1849E",
+          "#F1B9C7",
+          "#FEE8ED"
+        ]
+      },
+      "tinta-papel": {
+        "role": "neutral",
+        "displayName": "Tinta sobre papel",
+        "canonical": "oklch(27.6% 0.090 282)",
+        "tonalRamp": [
+          "#0A0A14",
+          "#1F1F33",
+          "#363755",
+          "#575885",
+          "#7879B5",
+          "#9EA0CC",
+          "#C6C8E2",
+          "#EDEEF8"
+        ]
+      },
+      "tinta-papel-2": {
+        "role": "neutral",
+        "displayName": "Tinta sobre papel tenue",
+        "canonical": "oklch(41.9% 0.082 287)",
+        "tonalRamp": [
+          "#0A0A13",
+          "#201F31",
+          "#393752",
+          "#5B5881",
+          "#7D79AF",
+          "#A1A0C7",
+          "#C8C8DF",
+          "#EEEDF7"
+        ]
+      },
+      "violeta-papel": {
+        "role": "neutral",
+        "displayName": "Violeta sobre papel",
+        "canonical": "oklch(44.1% 0.175 293)",
+        "tonalRamp": [
+          "#0C071C",
+          "#241941",
+          "#3E2D6A",
+          "#634AA4",
+          "#8766DD",
+          "#A895EA",
+          "#CCC3F5",
+          "#EFECFF"
+        ]
+      },
+      "cuerda": {
+        "role": "tertiary",
+        "displayName": "Mecate",
+        "canonical": "oklch(78.8% 0.063 84)",
+        "tonalRamp": [
+          "#0E0B05",
+          "#282113",
+          "#443924",
+          "#6B5B3C",
+          "#927D54",
+          "#B2A386",
+          "#D2CAB9",
+          "#F1EEE8"
+        ]
+      },
+      "cuerda-sombra": {
+        "role": "tertiary",
+        "displayName": "Sombra de mecate",
+        "canonical": "oklch(58.2% 0.060 79)",
+        "tonalRamp": [
+          "#0F0A05",
+          "#282014",
+          "#443926",
+          "#6C5B3F",
+          "#947C57",
+          "#B3A288",
+          "#D3C9BA",
+          "#F2EEE8"
+        ]
+      },
+      "foco": {
+        "role": "tertiary",
+        "displayName": "Ámbar de foquito",
+        "canonical": "oklch(89.3% 0.104 81)",
+        "tonalRamp": [
+          "#110A01",
+          "#2C1F06",
+          "#4B3710",
+          "#75581E",
+          "#A0792C",
+          "#BCA06F",
+          "#D9C8AC",
+          "#F4EEE3"
+        ]
+      },
+      "aviso": {
+        "role": "neutral",
+        "displayName": "Aviso",
+        "canonical": "oklch(84.3% 0.091 4)",
+        "tonalRamp": [
+          "#13070A",
+          "#311A1F",
+          "#522E37",
+          "#804C58",
+          "#AE6979",
+          "#C8949F",
+          "#E0C1C7",
+          "#F7EBED"
+        ]
+      }
+    },
+    "typographyMeta": {
+      "display": {
+        "displayName": "Corte",
+        "purpose": "Solo los nombres de los novios."
+      },
+      "numeral": {
+        "displayName": "Numeral de corte",
+        "purpose": "Horas de los lugares; chips de cantidad a 1.375rem."
+      },
+      "headline": {
+        "displayName": "Voz: sección",
+        "purpose": "Títulos de sección."
+      },
+      "title": {
+        "displayName": "Voz: invitado",
+        "purpose": "Nombre del invitado; firma y título del resumen a menor escala."
+      },
+      "title-sm": {
+        "displayName": "Voz: pregunta",
+        "purpose": "Pregunta del formulario y títulos de las hojas."
+      },
+      "body": {
+        "displayName": "Texto",
+        "purpose": "Todo el texto corrido."
+      },
+      "body-lg": {
+        "displayName": "Texto grande",
+        "purpose": "Fecha de portada, nombre del lugar y botón principal."
+      },
+      "label": {
+        "displayName": "Etiqueta",
+        "purpose": "Etiquetas de campo y nombres completos; tamaño mínimo de lectura."
+      }
+    },
+    "shadows": [
+      {
+        "name": "banderita",
+        "value": "drop-shadow(0 6px 6px rgb(10 8 32 / .35))",
+        "purpose": "Papel ligero de las banderitas (filter)."
+      },
+      {
+        "name": "pliego",
+        "value": "drop-shadow(0 10px 10px rgb(10 8 32 / .4))",
+        "purpose": "Pliegos con foto (filter)."
+      },
+      {
+        "name": "hoja",
+        "value": "drop-shadow(0 12px 14px rgb(10 8 32 / .35))",
+        "purpose": "Hojas de Cuándo y dónde (filter)."
+      },
+      {
+        "name": "doblez",
+        "value": "inset 0 .4rem 0 rgb(0 0 0 / .1)",
+        "purpose": "Banda oscura del doblez arriba de cada control de papel."
+      },
+      {
+        "name": "halo-foco",
+        "value": "radial-gradient(closest-side, rgb(255 213 138 / .3), rgb(255 213 138 / 0))",
+        "purpose": "Luz de los foquitos."
+      },
+      {
+        "name": "anillo-foco",
+        "value": "outline: 3px solid var(--foco); outline-offset: 3px",
+        "purpose": "Foco de teclado; en botones enmascarados, doble anillo interior noche + ámbar."
+      }
+    ],
+    "motion": [
+      {
+        "name": "curva",
+        "value": "cubic-bezier(.16, 1, .3, 1)",
+        "purpose": "Levantar el pliego (0.9s) y el cambio de escala de la foto."
+      },
+      {
+        "name": "vaiven",
+        "value": "rotate ±1.8deg, 3.2–4.8s ease-in-out infinite alternate",
+        "purpose": "Viento en banderitas y pliegos, con retrasos escalonados."
+      },
+      {
+        "name": "levantar",
+        "value": "perspective(1100px) rotateX(-82deg); hover -16deg",
+        "purpose": "Revelar la foto detrás del papel."
+      },
+      {
+        "name": "lluvia",
+        "value": "caer 3.6–6.2s cubic-bezier(.35, .1, .65, 1); aletear rotate3d 1.2–2.6s",
+        "purpose": "Lluvia de papel al confirmar; desactivada con movimiento reducido."
+      }
+    ],
+    "breakpoints": [
+      {
+        "name": "ancho",
+        "value": "56rem"
+      }
+    ]
+  },
+  "components": [
+    {
+      "name": "Botón principal",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "Papel rosa con dientes abajo para enviar la respuesta.",
+      "html": "<button class=\"ds-boton\">Enviar respuesta</button>",
+      "css": ".ds-boton{--noche:#221E4F;--tinta:#F4EEF8;--tinta-2:#CFC6E6;--blanco:#F4EEF8;--lila:#C7B2EC;--violeta:#7B4FC4;--rosa:#EF6A95;--tinta-papel:#231F52;--tinta-papel-2:#4A4577;--violeta-papel:#5B34A8;--cuerda:#CDB78C;--foco:#FFD58A;--aviso:#FFB3C4;--corte:\"Big Shoulders Stencil\",\"Arial Narrow\",sans-serif;--voz:\"Young Serif\",Georgia,serif;--texto:\"Figtree\",\"Segoe UI\",system-ui,sans-serif;}.ds-boton{display:block;width:100%;padding:1rem 1.5rem 1.4rem;font-family:var(--texto);font-weight:700;font-size:1.1875rem;color:var(--noche);background:var(--rosa);border:0;border-radius:0;cursor:pointer;box-shadow:inset 0 .45rem 0 rgb(0 0 0 / .1);-webkit-mask:conic-gradient(from -45deg at bottom,#0000,#000 1deg 89deg,#0000 90deg) 50% / 16px 100%;mask:conic-gradient(from -45deg at bottom,#0000,#000 1deg 89deg,#0000 90deg) 50% / 16px 100%;transition:background-color .2s}.ds-boton:hover{background:#F488AB}.ds-boton:focus-visible{outline:none;box-shadow:inset 0 0 0 3px var(--noche),inset 0 0 0 6px var(--foco)}.ds-boton:disabled{opacity:.65;cursor:progress}"
+    },
+    {
+      "name": "Botón secundario",
+      "kind": "button",
+      "refersTo": "button-secondary",
+      "description": "Papel lila para cambiar la respuesta.",
+      "html": "<button class=\"ds-boton-sec\">Cambiar mi respuesta</button>",
+      "css": ".ds-boton-sec{--noche:#221E4F;--tinta:#F4EEF8;--tinta-2:#CFC6E6;--blanco:#F4EEF8;--lila:#C7B2EC;--violeta:#7B4FC4;--rosa:#EF6A95;--tinta-papel:#231F52;--tinta-papel-2:#4A4577;--violeta-papel:#5B34A8;--cuerda:#CDB78C;--foco:#FFD58A;--aviso:#FFB3C4;--corte:\"Big Shoulders Stencil\",\"Arial Narrow\",sans-serif;--voz:\"Young Serif\",Georgia,serif;--texto:\"Figtree\",\"Segoe UI\",system-ui,sans-serif;}.ds-boton-sec{display:inline-block;padding:.75rem 1.5rem 1.15rem;font-family:var(--texto);font-weight:600;font-size:1rem;color:var(--tinta-papel);background:var(--lila);border:0;border-radius:0;cursor:pointer;box-shadow:inset 0 .45rem 0 rgb(0 0 0 / .1);-webkit-mask:conic-gradient(from -45deg at bottom,#0000,#000 1deg 89deg,#0000 90deg) 50% / 12px 100%;mask:conic-gradient(from -45deg at bottom,#0000,#000 1deg 89deg,#0000 90deg) 50% / 12px 100%;transition:background-color .2s}.ds-boton-sec:hover{background:#D5C5F1}.ds-boton-sec:focus-visible{outline:none;box-shadow:inset 0 0 0 3px var(--noche),inset 0 0 0 6px var(--foco)}"
+    },
+    {
+      "name": "Opciones Sí / No",
+      "kind": "custom",
+      "refersTo": "option",
+      "description": "Dos papeles para responder; el elegido pasa a violeta con palomita.",
+      "html": "<div class=\"ds-opciones\"><label class=\"ds-opcion\"><input type=\"radio\" name=\"ds-a\" checked><span><svg viewBox=\"0 0 20 20\" aria-hidden=\"true\"><path d=\"M4 10.5l4 4 8-9\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2.4\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/></svg>Sí, ahí estaré</span></label><label class=\"ds-opcion\"><input type=\"radio\" name=\"ds-a\"><span><svg viewBox=\"0 0 20 20\" aria-hidden=\"true\"><path d=\"M4 10.5l4 4 8-9\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2.4\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/></svg>No podré asistir</span></label></div>",
+      "css": ".ds-opciones{--noche:#221E4F;--tinta:#F4EEF8;--tinta-2:#CFC6E6;--blanco:#F4EEF8;--lila:#C7B2EC;--violeta:#7B4FC4;--rosa:#EF6A95;--tinta-papel:#231F52;--tinta-papel-2:#4A4577;--violeta-papel:#5B34A8;--cuerda:#CDB78C;--foco:#FFD58A;--aviso:#FFB3C4;--corte:\"Big Shoulders Stencil\",\"Arial Narrow\",sans-serif;--voz:\"Young Serif\",Georgia,serif;--texto:\"Figtree\",\"Segoe UI\",system-ui,sans-serif;}.ds-opciones{display:grid;grid-template-columns:1fr 1fr;gap:.625rem;padding:1rem;background:var(--noche);font-family:var(--texto);font-size:1.125rem}.ds-opcion{position:relative;display:block;cursor:pointer;border-radius:2px}.ds-opcion input{position:absolute;inset:0;width:100%;height:100%;margin:0;opacity:0;cursor:pointer}.ds-opcion span{display:flex;align-items:center;justify-content:center;gap:.4rem;min-height:3.75rem;padding:.75rem .75rem 1.15rem;background:var(--blanco);color:var(--tinta-papel);font-weight:600;line-height:1.2;box-shadow:inset 0 .4rem 0 rgb(0 0 0 / .1);-webkit-mask:conic-gradient(from -45deg at bottom,#0000,#000 1deg 89deg,#0000 90deg) 50% / 14px 100%;mask:conic-gradient(from -45deg at bottom,#0000,#000 1deg 89deg,#0000 90deg) 50% / 14px 100%;transition:background-color .25s,color .25s}.ds-opcion svg{display:none;width:1.1rem;height:1.1rem}.ds-opcion input:checked+span{background:var(--violeta);color:#fff}.ds-opcion input:checked+span svg{display:block}.ds-opcion:has(input:focus-visible){outline:3px solid var(--foco);outline-offset:3px}"
+    },
+    {
+      "name": "Chips de cantidad",
+      "kind": "chip",
+      "refersTo": "chip",
+      "description": "Papeles lila con número en stencil, colgados de un mecate recto.",
+      "html": "<div class=\"ds-chips\"><label class=\"ds-chip\"><input type=\"radio\" name=\"ds-c\"><span>Solo yo</span></label><label class=\"ds-chip\"><input type=\"radio\" name=\"ds-c\"><span>1</span></label><label class=\"ds-chip\"><input type=\"radio\" name=\"ds-c\" checked><span>2</span></label></div>",
+      "css": ".ds-chips{--noche:#221E4F;--tinta:#F4EEF8;--tinta-2:#CFC6E6;--blanco:#F4EEF8;--lila:#C7B2EC;--violeta:#7B4FC4;--rosa:#EF6A95;--tinta-papel:#231F52;--tinta-papel-2:#4A4577;--violeta-papel:#5B34A8;--cuerda:#CDB78C;--foco:#FFD58A;--aviso:#FFB3C4;--corte:\"Big Shoulders Stencil\",\"Arial Narrow\",sans-serif;--voz:\"Young Serif\",Georgia,serif;--texto:\"Figtree\",\"Segoe UI\",system-ui,sans-serif;}.ds-chips{position:relative;display:flex;gap:.5rem;justify-content:center;padding:1.375rem 1rem 1rem;background:var(--noche)}.ds-chips::before{content:'';position:absolute;left:0;right:0;top:1.45rem;height:3px;background:var(--cuerda)}.ds-chip{position:relative;display:block;cursor:pointer;border-radius:2px}.ds-chip input{position:absolute;inset:0;width:100%;height:100%;margin:0;opacity:0;cursor:pointer}.ds-chip span{position:relative;display:block;min-width:3rem;padding:.7rem .8rem 1.1rem;background:var(--lila);color:var(--tinta-papel);font-family:var(--corte);font-weight:800;font-size:1.375rem;line-height:1;text-align:center;text-transform:uppercase;box-shadow:inset 0 .4rem 0 rgb(0 0 0 / .12);-webkit-mask:conic-gradient(from -45deg at bottom,#0000,#000 1deg 89deg,#0000 90deg) 50% / 10px 100%;mask:conic-gradient(from -45deg at bottom,#0000,#000 1deg 89deg,#0000 90deg) 50% / 10px 100%;}.ds-chip input:checked+span{background:var(--violeta);color:#fff}.ds-chip:has(input:focus-visible){outline:3px solid var(--foco);outline-offset:3px}"
+    },
+    {
+      "name": "Campo de nombre",
+      "kind": "input",
+      "refersTo": "input-field",
+      "description": "Campo sin caja con línea base lila; foco en ámbar, error en aviso.",
+      "html": "<div class=\"ds-campo\"><label for=\"ds-n\">Nombre del acompañante 1</label><input id=\"ds-n\" value=\"Inés Rojas\"></div>",
+      "css": ".ds-campo{--noche:#221E4F;--tinta:#F4EEF8;--tinta-2:#CFC6E6;--blanco:#F4EEF8;--lila:#C7B2EC;--violeta:#7B4FC4;--rosa:#EF6A95;--tinta-papel:#231F52;--tinta-papel-2:#4A4577;--violeta-papel:#5B34A8;--cuerda:#CDB78C;--foco:#FFD58A;--aviso:#FFB3C4;--corte:\"Big Shoulders Stencil\",\"Arial Narrow\",sans-serif;--voz:\"Young Serif\",Georgia,serif;--texto:\"Figtree\",\"Segoe UI\",system-ui,sans-serif;}.ds-campo{padding:1rem;background:var(--noche);font-family:var(--texto);font-size:1.125rem}.ds-campo label{display:block;font-size:.9375rem;color:var(--tinta-2)}.ds-campo input{width:100%;padding:.45rem 0;font:inherit;color:var(--tinta);background:transparent;border:0;border-bottom:2px solid var(--lila);border-radius:0}.ds-campo input:focus{outline:none;border-bottom-color:var(--foco);box-shadow:0 2px 0 var(--foco)}.ds-campo input[aria-invalid=true]{border-bottom-color:var(--aviso)}"
+    },
+    {
+      "name": "Hoja de lugar",
+      "kind": "card",
+      "refersTo": "hoja",
+      "description": "Hoja de papel con perforaciones laterales, hora en stencil y enlace a Maps.",
+      "html": "<article class=\"ds-hoja\"><div class=\"ds-hoja-cuerpo\"><h3>Ceremonia religiosa</h3><p class=\"ds-hora\">6:00<small>p.m.</small></p><p class=\"ds-lugar\">Templo de Nuestra Señora del Carmen</p><p class=\"ds-dir\">Del Carmen 116, Zona Centro, Guadalajara</p><p><a href=\"#\"><svg viewBox=\"0 0 20 20\" aria-hidden=\"true\"><path d=\"M10 18s-5.5-5.1-5.5-9.3a5.5 5.5 0 0 1 11 0C15.5 12.9 10 18 10 18z\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.8\" stroke-linejoin=\"round\"/><circle cx=\"10\" cy=\"8.6\" r=\"2\" fill=\"currentColor\"/></svg>Cómo llegar</a></p></div></article>",
+      "css": ".ds-hoja{--noche:#221E4F;--tinta:#F4EEF8;--tinta-2:#CFC6E6;--blanco:#F4EEF8;--lila:#C7B2EC;--violeta:#7B4FC4;--rosa:#EF6A95;--tinta-papel:#231F52;--tinta-papel-2:#4A4577;--violeta-papel:#5B34A8;--cuerda:#CDB78C;--foco:#FFD58A;--aviso:#FFB3C4;--corte:\"Big Shoulders Stencil\",\"Arial Narrow\",sans-serif;--voz:\"Young Serif\",Georgia,serif;--texto:\"Figtree\",\"Segoe UI\",system-ui,sans-serif;}.ds-hoja{padding:1.5rem 1rem;background:var(--noche);font-family:var(--texto);font-size:1.125rem;line-height:1.55}.ds-hoja-cuerpo{padding:1.25rem 2.25rem;background:var(--blanco);color:var(--tinta-papel);filter:drop-shadow(0 12px 14px rgb(10 8 32 / .35));-webkit-mask:radial-gradient(circle at 50% 50%,#0000 2.6px,#000 3.1px) left top / 22px 14px repeat-y,radial-gradient(circle at 50% 50%,#0000 2.6px,#000 3.1px) right top / 22px 14px repeat-y,linear-gradient(#000 0 0) center / calc(100% - 44px) 100% no-repeat;mask:radial-gradient(circle at 50% 50%,#0000 2.6px,#000 3.1px) left top / 22px 14px repeat-y,radial-gradient(circle at 50% 50%,#0000 2.6px,#000 3.1px) right top / 22px 14px repeat-y,linear-gradient(#000 0 0) center / calc(100% - 44px) 100% no-repeat}.ds-hoja h3{margin:0;font-family:var(--voz);font-weight:400;font-size:1.625rem;line-height:1.15}.ds-hoja p{margin:0}.ds-hoja .ds-hora{margin-top:.75rem;font-family:var(--corte);font-weight:800;font-size:3.25rem;line-height:1;color:var(--violeta-papel)}.ds-hora small{font-size:.45em;margin-left:.2em}.ds-hoja .ds-lugar{margin-top:.75rem;font-weight:600;font-size:1.1875rem;line-height:1.35}.ds-hoja .ds-dir{margin-top:.25rem;font-size:1rem;color:var(--tinta-papel-2)}.ds-hoja a{display:inline-flex;align-items:center;gap:.4rem;margin-top:1rem;padding-block:.35rem;font-weight:700;color:var(--violeta-papel);text-underline-offset:.22em}.ds-hoja a svg{width:1.1rem;height:1.1rem}.ds-hoja a:focus-visible{outline:3px solid var(--violeta-papel);outline-offset:3px}"
+    },
+    {
+      "name": "Banderita de papel picado",
+      "kind": "custom",
+      "refersTo": "",
+      "description": "Bandera de 100×120 con orla de rombos, calado de flor y orilla dentada, meciéndose en la cuerda.",
+      "html": "<div class=\"ds-tendedero\"><svg class=\"ds-bandera\" viewBox=\"0 0 100 120\"><defs><mask id=\"ds-m-flor\" maskUnits=\"userSpaceOnUse\" x=\"0\" y=\"0\" width=\"100\" height=\"120\"><rect width=\"100\" height=\"120\" fill=\"#fff\"/><g fill=\"#000\"><path d=\"M14 13.4L16.6 16L14 18.6L11.4 16Z\"/><path d=\"M14 93.4L16.6 96L14 98.6L11.4 96Z\"/><path d=\"M23 13.4L25.6 16L23 18.6L20.4 16Z\"/><path d=\"M23 93.4L25.6 96L23 98.6L20.4 96Z\"/><path d=\"M32 13.4L34.6 16L32 18.6L29.4 16Z\"/><path d=\"M32 93.4L34.6 96L32 98.6L29.4 96Z\"/><path d=\"M41 13.4L43.6 16L41 18.6L38.4 16Z\"/><path d=\"M41 93.4L43.6 96L41 98.6L38.4 96Z\"/><path d=\"M50 13.4L52.6 16L50 18.6L47.4 16Z\"/><path d=\"M50 93.4L52.6 96L50 98.6L47.4 96Z\"/><path d=\"M59 13.4L61.6 16L59 18.6L56.4 16Z\"/><path d=\"M59 93.4L61.6 96L59 98.6L56.4 96Z\"/><path d=\"M68 13.4L70.6 16L68 18.6L65.4 16Z\"/><path d=\"M68 93.4L70.6 96L68 98.6L65.4 96Z\"/><path d=\"M77 13.4L79.6 16L77 18.6L74.4 16Z\"/><path d=\"M77 93.4L79.6 96L77 98.6L74.4 96Z\"/><path d=\"M86 13.4L88.6 16L86 18.6L83.4 16Z\"/><path d=\"M86 93.4L88.6 96L86 98.6L83.4 96Z\"/><circle cx=\"24\" cy=\"30\" r=\"2.4\"/><circle cx=\"76\" cy=\"30\" r=\"2.4\"/><circle cx=\"24\" cy=\"82\" r=\"2.4\"/><circle cx=\"76\" cy=\"82\" r=\"2.4\"/><ellipse cx=\"50\" cy=\"41\" rx=\"5\" ry=\"11\" transform=\"rotate(0 50 56)\"/><ellipse cx=\"50\" cy=\"41\" rx=\"5\" ry=\"11\" transform=\"rotate(45 50 56)\"/><ellipse cx=\"50\" cy=\"41\" rx=\"5\" ry=\"11\" transform=\"rotate(90 50 56)\"/><ellipse cx=\"50\" cy=\"41\" rx=\"5\" ry=\"11\" transform=\"rotate(135 50 56)\"/><ellipse cx=\"50\" cy=\"41\" rx=\"5\" ry=\"11\" transform=\"rotate(180 50 56)\"/><ellipse cx=\"50\" cy=\"41\" rx=\"5\" ry=\"11\" transform=\"rotate(225 50 56)\"/><ellipse cx=\"50\" cy=\"41\" rx=\"5\" ry=\"11\" transform=\"rotate(270 50 56)\"/><ellipse cx=\"50\" cy=\"41\" rx=\"5\" ry=\"11\" transform=\"rotate(315 50 56)\"/></g><g fill=\"#fff\"><circle cx=\"50\" cy=\"56\" r=\"5.5\"/></g><g fill=\"#000\"><circle cx=\"50\" cy=\"56\" r=\"2\"/></g></mask></defs><path d=\"M0 0H100V106L95 120L90 106L85 120L80 106L75 120L70 106L65 120L60 106L55 120L50 106L45 120L40 106L35 120L30 106L25 120L20 106L15 120L10 106L5 120L0 106Z\" fill=\"currentColor\" fill-opacity=\".9\" mask=\"url(#ds-m-flor)\"/><rect width=\"100\" height=\"8\" fill=\"#000\" fill-opacity=\".14\"/></svg></div>",
+      "css": ".ds-tendedero{--noche:#221E4F;--tinta:#F4EEF8;--tinta-2:#CFC6E6;--blanco:#F4EEF8;--lila:#C7B2EC;--violeta:#7B4FC4;--rosa:#EF6A95;--tinta-papel:#231F52;--tinta-papel-2:#4A4577;--violeta-papel:#5B34A8;--cuerda:#CDB78C;--foco:#FFD58A;--aviso:#FFB3C4;--corte:\"Big Shoulders Stencil\",\"Arial Narrow\",sans-serif;--voz:\"Young Serif\",Georgia,serif;--texto:\"Figtree\",\"Segoe UI\",system-ui,sans-serif;}.ds-tendedero{position:relative;padding:1rem 2rem 1.5rem;background:var(--noche);color:var(--rosa);text-align:center}.ds-tendedero::before{content:'';position:absolute;left:0;right:0;top:1.1rem;height:3px;background:var(--cuerda)}.ds-bandera{position:relative;width:4.25rem;transform-origin:50% 0;filter:drop-shadow(0 6px 6px rgb(10 8 32 / .35));animation:ds-vaiven 3.6s ease-in-out infinite alternate}@keyframes ds-vaiven{from{rotate:-1.8deg}to{rotate:1.8deg}}@media (prefers-reduced-motion:reduce){.ds-bandera{animation:none}}"
+    }
+  ],
+  "narrative": {
+    "northStar": "La fiesta en el jardín bajo papel picado",
+    "overview": "La página entera es una noche de jardín índigo atravesada por mecates de los que cuelga papel de china. Nada se apoya: todo cuelga. Las banderitas, los pliegos con foto, las hojas de \"Cuándo y dónde\" y hasta las opciones del formulario son papel con orilla dentada, calados de encaje y un doblez más oscuro arriba. Los foquitos tibios cuelgan de las mismas cuerdas y dan la única luz cálida del mundo.\n\nLa densidad es de invitación, no de aplicación: una sola columna centrada en el celular, mucho aire entre secciones y texto grande para invitados de todas las edades. En pantallas anchas la portada se abre en dos columnas (pliegos a la izquierda, texto a la derecha) sin cambiar de materiales. El gesto distintivo es levantar un pliego desde su cuerda para ver la foto a color que estaba detrás del papel.\n\nEl mundo rechaza la invitación estándar de crema, acuarela, caligrafía y carrusel, y nunca junta verde, blanco y rojo, ni usa cempasúchil o calaveras.",
+    "keyCharacteristics": [
+      "Fondo nocturno único; la página es solo oscura (`color-scheme: dark`).",
+      "Papel de china translúcido en cuatro colores, cortado con máscaras SVG: rombos, círculos, flores, corazón, sol, medallón y letras.",
+      "Mecate torcido (trazo base más trazo punteado) con comba calculada como `4t(1 − t)`; cada colgante baja según la curva.",
+      "Tres voces tipográficas: corte en stencil, voz cálida en serif, texto en sans legible.",
+      "Profundidad por sombra que sigue la silueta del papel, nunca por cajas elevadas.",
+      "Movimiento de viento: vaivén leve y lluvia de papel al confirmar, ambos apagados con `prefers-reduced-motion`."
+    ],
+    "rules": [
+      {
+        "name": "The Cuatro Papeles Rule",
+        "body": "Todo papel es blanco, lila, violeta o rosa, y se alternan en secuencia (las banderitas rotan los cuatro, las hojas alternan blanco y lila). Ningún otro color se vuelve papel.",
+        "section": "colors"
+      },
+      {
+        "name": "The Tinta Según Superficie Rule",
+        "body": "Sobre la noche se escribe con tinta y tinta-2; sobre papel claro o lila, con tinta-papel, tinta-papel-2 y violeta-papel. Sobre violeta, blanco; sobre rosa, noche.",
+        "section": "colors"
+      },
+      {
+        "name": "The Una Sola Luz Rule",
+        "body": "El ámbar es luz, no decoración: foquitos, su halo y el anillo de foco. Nunca rellena un papel ni un botón.",
+        "section": "colors"
+      },
+      {
+        "name": "The Tres Voces Rule",
+        "body": "El stencil es para nombres, números y cantidades; Young Serif para encabezados, el nombre del invitado y la firma; Figtree para todo lo demás. El stencil nunca lleva una oración.",
+        "section": "typography"
+      },
+      {
+        "name": "The Letra Grande Rule",
+        "body": "El cuerpo es 1.125rem y nada que se lea baja de 0.9375rem: los invitados incluyen adultos mayores en celular.",
+        "section": "typography"
+      },
+      {
+        "name": "The Todo Cuelga Rule",
+        "body": "Banderitas, pliegos, hojas y la fila de chips cuelgan de un mecate; ningún papel decorativo flota sin cuerda. Las opciones Sí / No y los botones son la excepción: papel cortado dentro del bloque de texto.",
+        "section": "layout"
+      },
+      {
+        "name": "The Sombra De Silueta Rule",
+        "body": "Las sombras siguen el contorno dentado y calado del papel, siempre en índigo profundo; nunca una sombra rectangular desplazada.",
+        "section": "elevation"
+      },
+      {
+        "name": "The Orilla Dentada Rule",
+        "body": "Todo papel termina en dientes; un borde liso y recto abajo delata que no es papel picado.",
+        "section": "shapes"
+      }
+    ],
+    "dos": [
+      "**Do** colgar cada grupo nuevo de un mecate con la comba `4t(1 − t)` y bajar cada colgante según su posición en la curva.",
+      "**Do** cortar todo papel nuevo con orilla dentada abajo y doblez oscuro arriba, en blanco, lila, violeta o rosa.",
+      "**Do** escribir sobre papel con tinta-papel o violeta-papel, y sobre la noche con tinta o tinta-2.",
+      "**Do** usar el stencil solo para nombres, números y cantidades, y Young Serif para encabezados, el nombre del invitado y la firma.",
+      "**Do** mantener el cuerpo en 1.125rem, controles de al menos 3rem de alto y el anillo de foco ámbar de 3px.",
+      "**Do** apagar vaivén, levantamiento y lluvia con `prefers-reduced-motion`."
+    ],
+    "donts": [
+      "**Don't** juntar verde, blanco y rojo, ni usar cempasúchil o calaveras.",
+      "**Don't** volver a la invitación estándar de crema, acuarela, caligrafía y carrusel.",
+      "**Don't** agregar un modo claro: la página es noche de jardín y solo oscura.",
+      "**Don't** redondear esquinas de papel ni usar sombras rectangulares desplazadas.",
+      "**Don't** usar el ámbar como relleno de superficie; es luz y foco.",
+      "**Don't** poner oraciones en stencil ni texto que se lea por debajo de 0.9375rem."
+    ]
+  }
+}

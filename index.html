@@ -8,255 +8,434 @@
 <meta property="og:title" content="Nuestra boda: Giovana y Jesús">
 <meta property="og:description" content="Abre tu invitación y confirma tu asistencia.">
 <meta property="og:type" content="website">
-<meta name="theme-color" content="#F6F3F9" media="(prefers-color-scheme: light)">
-<meta name="theme-color" content="#1B1525" media="(prefers-color-scheme: dark)">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%F0%9F%92%9C%3C/text%3E%3C/svg%3E">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Alegreya+Sans:ital,wght@0,400;0,500;0,700;1,400&family=Italiana&display=swap" rel="stylesheet">
+<meta name="theme-color" content="#221E4F">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 120'%3E%3Cpath d='M0 0H100V106L90 120L80 106L70 120L60 106L50 120L40 106L30 120L20 106L10 120L0 106Z' fill='%23EF6A95'/%3E%3Ccircle cx='50' cy='56' r='20' fill='%23221E4F'/%3E%3C/svg%3E">
+<link rel="preload" href="fuentes/big-shoulders-stencil.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="fuentes/young-serif.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="fuentes/figtree.woff2" as="font" type="font/woff2" crossorigin>
 <style>
-  :root {
-    color-scheme: light dark;
-    --paper: #F6F3F9;
-    --ink: #2B2140;
-    --muted: #6E6480;
-    --jacaranda: #6F4FA0;
-    --lavanda: #9479C2;
-    --bloom: #C4B1E2;
-    --leaf: #6C8A5B;
-    --branch: #4A3B5C;
-    --line: #DCD3E8;
-    --error: #A3261E;
-    --display: "Italiana", "Didot", "Bodoni 72", Georgia, serif;
-    --text: "Alegreya Sans", "Segoe UI", system-ui, -apple-system, sans-serif;
+  @font-face {
+    font-family: "Big Shoulders Stencil";
+    src: url("fuentes/big-shoulders-stencil.woff2") format("woff2");
+    font-weight: 700 900;
+    font-display: swap;
   }
-  @media (prefers-color-scheme: dark) {
-    :root {
-      --paper: #1B1525;
-      --ink: #EDE7F5;
-      --muted: #A99EBB;
-      --jacaranda: #B79BE3;
-      --lavanda: #8E72BF;
-      --bloom: #5A4680;
-      --leaf: #8FAE7E;
-      --branch: #9C8CB2;
-      --line: #3A2F4D;
-      --error: #F2A099;
-    }
+  @font-face {
+    font-family: "Young Serif";
+    src: url("fuentes/young-serif.woff2") format("woff2");
+    font-weight: 400;
+    font-display: swap;
+  }
+  @font-face {
+    font-family: "Figtree";
+    src: url("fuentes/figtree.woff2") format("woff2");
+    font-weight: 400 700;
+    font-display: swap;
+  }
+
+  :root {
+    color-scheme: dark;
+    /* Noche de jardín */
+    --noche: #221E4F;
+    --noche-honda: #1A1740;
+    --tinta: #F4EEF8;
+    --tinta-2: #CFC6E6;
+    /* Papel de china */
+    --blanco: #F4EEF8;
+    --lila: #C7B2EC;
+    --violeta: #7B4FC4;
+    --rosa: #EF6A95;
+    /* Tinta sobre papel */
+    --tinta-papel: #231F52;
+    --tinta-papel-2: #4A4577;
+    --violeta-papel: #5B34A8;
+    /* Cuerda y luz */
+    --cuerda: #CDB78C;
+    --cuerda-sombra: #8E7752;
+    --foco: #FFD58A;
+    --aviso: #FFB3C4;
+
+    --corte: "Big Shoulders Stencil", "Arial Narrow", sans-serif;
+    --voz: "Young Serif", Georgia, serif;
+    --texto: "Figtree", "Segoe UI", system-ui, -apple-system, sans-serif;
+
+    --curva: cubic-bezier(.16, 1, .3, 1);
   }
 
   *, *::before, *::after { box-sizing: border-box; }
   [hidden] { display: none !important; }
-  html { -webkit-text-size-adjust: 100%; }
+  html { -webkit-text-size-adjust: 100%; scrollbar-color: var(--lila) var(--noche-honda); }
   body {
     margin: 0;
-    background: var(--paper);
-    color: var(--ink);
-    font-family: var(--text);
+    background: var(--noche);
+    color: var(--tinta);
+    font-family: var(--texto);
     font-size: 1.125rem;
     line-height: 1.55;
+    caret-color: var(--rosa);
     padding: env(safe-area-inset-top, 0px) env(safe-area-inset-right, 0px)
              env(safe-area-inset-bottom, 0px) env(safe-area-inset-left, 0px);
   }
-  main { max-width: 34rem; margin: 0 auto; padding: 0 1.5rem 4rem; text-align: center; }
-  h1, h2, h3 { margin: 0; font-family: var(--display); font-weight: 400; }
-  p { margin: 0; }
-  a { color: var(--jacaranda); text-underline-offset: .2em; }
-  a:focus-visible { outline: 2px solid var(--jacaranda); outline-offset: 3px; border-radius: 2px; }
+  ::selection { background: var(--rosa); color: var(--noche); }
+  .pagina { overflow-x: clip; }
+  h1, h2, h3, p { margin: 0; }
+  h2, h3 { font-family: var(--voz); font-weight: 400; text-wrap: balance; }
+  a { color: inherit; text-underline-offset: .22em; text-decoration-thickness: 1.5px; }
+  :focus-visible { outline: 3px solid var(--foco); outline-offset: 3px; border-radius: 2px; }
+  .marco { width: min(100% - 2rem, 70rem); margin-inline: auto; }
+  .sr { position: absolute; width: 1px; height: 1px; margin: -1px; padding: 0; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0; }
+  .defs { position: absolute; width: 0; height: 0; overflow: hidden; }
 
-  .aviso-demo { padding: .6rem 1.25rem; background: var(--bloom); color: var(--ink); font-size: .9375rem; text-align: center; }
+  .aviso-demo { padding: .6rem 1rem; background: var(--blanco); color: var(--tinta-papel); font-size: .9375rem; text-align: center; }
 
-  /* Portada */
-  .ramo { display: block; width: calc(100% + 3rem); height: auto; margin: 0 -1.5rem; }
-  .rama { fill: none; stroke: var(--branch); stroke-linecap: round; opacity: .55; }
-  .hojas { color: var(--leaf); opacity: .8; }
-  .c1 { color: var(--jacaranda); }
-  .c2 { color: var(--lavanda); }
-  .c3 { color: var(--bloom); }
-  .anuncio { margin-top: .5rem; font-size: 1.25rem; font-style: italic; color: var(--muted); }
-  .nombres { margin-top: .5rem; font-size: clamp(3.75rem, 17vw, 6.25rem); line-height: .95; letter-spacing: .01em; }
-  .nombres span { display: block; }
-  .nombres .y { font-family: var(--text); font-size: .36em; font-style: italic; line-height: 1.5; color: var(--muted); }
-  .fecha { margin-top: 1.5rem; font-size: 1.25rem; }
-  .cuenta { margin-top: .25rem; font-size: 1rem; color: var(--muted); }
-  .fecha:empty, .cuenta:empty { display: none; }
+  /* ---------- Cuerdas y colgantes ---------- */
+  .tendedero { --comba: 1.25rem; position: relative; margin-inline: calc(50% - 50vw); }
+  .cuerda { position: absolute; left: 0; top: .25rem; width: 100%; height: var(--comba); overflow: visible; pointer-events: none; }
+  /* Mecate torcido: un trazo base y otro punteado que dibuja la torsión. */
+  .cuerda path { fill: none; vector-effect: non-scaling-stroke; stroke-linecap: round; }
+  .cuerda .mecate { stroke: var(--cuerda); stroke-width: 3.5px; }
+  .cuerda .torsion { stroke: var(--cuerda-sombra); stroke-width: 3.5px; stroke-dasharray: 1.6 3.4; }
+  /* El mismo mecate para cuerdas rectas dibujadas con CSS: un tramo de torsión que se repite. */
+  :root { --mecate: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='5' height='3'%3E%3Crect width='5' height='3' rx='1.5' fill='%23CDB78C'/%3E%3Cpath d='M2.6 0h1.6L2.4 3H.8z' fill='%238E7752'/%3E%3C/svg%3E"); }
 
-  .separador { display: flex; align-items: center; gap: .75rem; margin: 2.75rem 0 2.25rem; color: var(--lavanda); }
-  .separador::before, .separador::after { content: ""; flex: 1; height: 1px; background: var(--line); }
-  .separador svg { flex: none; width: 18px; height: 18px; }
-
-  .carga, .error { margin-top: 3rem; color: var(--muted); }
-
-  /* Saludo */
-  .invitado, .titulo { font-size: clamp(2.125rem, 9vw, 2.75rem); line-height: 1.1; }
-  .saludo p { margin-top: .75rem; }
-
-  /* Detalles */
-  .lugares { display: grid; gap: 2rem; }
-  @media (min-width: 30rem) { .lugares { grid-template-columns: repeat(auto-fit, minmax(12rem, 1fr)); } }
-  .lugar h3 { font-size: 1.75rem; line-height: 1.2; }
-  .lugar p { margin-top: .25rem; }
-  .lugar .hora { font-size: 1.25rem; font-weight: 500; }
-  .lugar .direccion { font-size: 1rem; color: var(--muted); }
-  .vestimenta { margin-top: 2rem; }
-
-  /* Formulario */
-  fieldset { min-width: 0; margin: 0; padding: 0; border: 0; }
-  .opciones { display: grid; gap: .75rem; margin-top: 1.5rem; }
-  @media (min-width: 26rem) { .opciones { grid-template-columns: 1fr 1fr; } }
-  .opcion, .chip { position: relative; display: block; cursor: pointer; }
-  .opcion input, .chip input { position: absolute; inset: 0; width: 100%; height: 100%; margin: 0; opacity: 0; cursor: pointer; }
-  .opcion span {
-    display: block; padding: .85rem 1rem; border: 1.5px solid var(--jacaranda); border-radius: 999px;
-    color: var(--jacaranda); font-weight: 500; transition: background-color .2s, color .2s;
+  /* Foquitos: cuelgan de la cuerda, detrás de las banderas. */
+  .foco {
+    position: absolute; top: calc(.25rem + var(--comba) * var(--k, 0) + 1px); left: var(--x);
+    width: .5rem; height: .8rem; translate: -50% 0; pointer-events: none;
+    border-radius: 1px 1px 50% 50% / 1px 1px 60% 60%;
+    background: radial-gradient(circle at 40% 62%, #FFF8E1 0 18%, var(--foco) 45%, #E8A54B 100%);
+    box-shadow: inset 0 .2rem 0 #4A4268;
   }
-  .opcion input:checked + span { background: var(--jacaranda); color: var(--paper); }
-  .opcion input:focus-visible + span,
-  .chip input:focus-visible + span { outline: 2px solid var(--ink); outline-offset: 3px; }
+  .foco::after {
+    content: ""; position: absolute; left: 50%; top: 70%; width: 2.75rem; height: 2.75rem; translate: -50% -50%;
+    border-radius: 50%; background: radial-gradient(closest-side, rgb(255 213 138 / .3), rgb(255 213 138 / 0));
+  }
+  .colgantes { display: flex; justify-content: center; align-items: flex-start; }
+  .colgantes > * { margin-top: calc(var(--comba) * var(--k, 0)); transform-origin: 50% 0; }
+  .meciendo > * { animation: vaiven var(--dur, 3.6s) ease-in-out var(--retraso, 0s) infinite alternate; }
+  @keyframes vaiven { from { rotate: -1.8deg; } to { rotate: 1.8deg; } }
+
+  .bandera { flex: none; display: block; width: 3.25rem; filter: drop-shadow(0 6px 6px rgb(10 8 32 / .35)); }
+  .bandera svg { display: block; width: 100%; height: auto; overflow: visible; }
+
+  .tendedero-cielo { --comba: 1.4rem; height: 4.75rem; overflow: hidden; }
+  .tendedero-cielo .colgantes { gap: .55rem; }
+
+  /* ---------- Pliegos con foto ---------- */
+  .pliego {
+    flex: none; position: relative; display: block; padding: 0; border: 0; background: none;
+    color: inherit; cursor: pointer; -webkit-tap-highlight-color: transparent;
+    filter: drop-shadow(0 10px 10px rgb(10 8 32 / .4));
+  }
+  /* La foto es la cara de atrás del pliego: misma orilla en dientes (máscara puesta desde JS). */
+  /* La foto empieza bajo el doblez: ahí el papel es translúcido y deja ver el mecate. */
+  .pliego .foto {
+    position: absolute; left: 0; top: var(--tope-foto, 3%); width: 100%; height: var(--alto-foto, 92.5%); overflow: hidden;
+    -webkit-mask: var(--silueta) 0 0 / 100% 100% no-repeat;
+            mask: var(--silueta) 0 0 / 100% 100% no-repeat;
+  }
+  .pliego img {
+    display: block; width: 100%; height: 100%;
+    object-fit: cover; object-position: var(--fx, 50%) var(--fy, 50%);
+    transform: scale(var(--zoom, 1)); transform-origin: var(--ox, var(--fx, 50%)) var(--oy, var(--fy, 50%));
+    transition: transform .9s var(--curva);
+  }
+  .pliego .papel {
+    position: relative; display: block; width: 100%; height: auto; overflow: visible;
+    color: var(--color, var(--blanco));
+    transform-origin: 50% 1%;
+    transform: perspective(1100px) rotateX(0deg);
+    transition: transform .9s var(--curva);
+  }
+  /* Colgado de un hilo más largo: gira desde donde el hilo toca la cuerda. */
+  .colgado-largo { margin-top: calc(var(--comba) * var(--k, 0) + var(--hilo, 0rem)) !important; transform-origin: 50% calc(-1 * var(--hilo, 0rem)) !important; }
+  .colgado-largo::before {
+    content: ""; position: absolute; left: calc(50% - .75px); bottom: 100%; width: 1.5px; height: var(--hilo, 0rem); background: var(--cuerda);
+  }
+  .pliego[aria-pressed="true"] .papel { transform: perspective(1100px) rotateX(-82deg); }
+  .pliego[aria-pressed="true"] img { transform: scale(1); }
+  @media (hover: hover) {
+    .pliego:hover .papel { transform: perspective(1100px) rotateX(-16deg); }
+    .pliego[aria-pressed="true"]:hover .papel { transform: perspective(1100px) rotateX(-82deg); }
+  }
+  .pliego:focus-visible { outline-offset: 6px; }
+  .pliego-chico { --tope-foto: 6.9%; --alto-foto: 82.3%; }
+
+  /* ---------- Portada ---------- */
+  .portada-cuerpo { display: grid; gap: 1rem; }
+  .tendedero-fotos { --comba: 1.6rem; margin-top: -.75rem; }
+  .tendedero-fotos .colgantes { gap: .4rem; padding-inline: 1rem; }
+  .tendedero-fotos .pliego-grande { width: clamp(10rem, 46vw, 13rem); }
+  .tendedero-fotos .pliego-chico { width: clamp(4.25rem, 20vw, 5.5rem); }
+  .tendedero-fotos .pliego-chico:first-child { --hilo: 2.25rem; }
+  .tendedero-fotos .pliego-chico:last-child { --hilo: 3.5rem; }
+
+  .portada-texto { text-align: center; }
+  .nombres {
+    font-family: var(--corte); font-weight: 900; text-transform: uppercase;
+    font-size: clamp(3.75rem, 20vw, 6rem); line-height: .86; letter-spacing: .01em;
+  }
+  .nombres .linea { display: block; }
+  .nombres .linea + .linea { margin-top: .2em; } /* aire para el acento de la Ú */
+  .nombres .amp { color: var(--rosa); }
+  .anuncio { margin-top: 1rem; font-family: var(--voz); font-size: 1.625rem; line-height: 1.2; }
+  .fecha { margin-top: .25rem; font-size: 1.1875rem; text-wrap: balance; }
+  .cuenta { margin-top: .25rem; font-size: 1rem; color: var(--tinta-2); }
+  .fecha:empty, .cuenta:empty { display: none; }
+  .carga, .error { margin-top: 2.5rem; color: var(--tinta-2); }
+  .error { color: var(--tinta); max-width: 30rem; margin-inline: auto; }
+
+  .saludo { margin-top: 4rem; text-align: center; }
+  .invitado { font-size: clamp(2.25rem, 9vw, 3.25rem); line-height: 1.05; }
+  .saludo p { margin-top: .5rem; color: var(--tinta-2); text-wrap: balance; }
+  .saludo h2 + p { margin-top: .75rem; color: var(--tinta); }
+
+  /* ---------- Respuesta (estructura original; solo cambia el estilo) ---------- */
+  .rsvp { text-align: center; }
+  .rsvp > form, .rsvp > .resumen, .rsvp > .mensaje { max-width: 34rem; margin-inline: auto; }
+  fieldset { min-width: 0; margin: 0; padding: 0; border: 0; }
+  .opciones { display: grid; gap: .625rem; margin-top: 2rem; }
+  @media (min-width: 26rem) { .opciones { grid-template-columns: 1fr 1fr; } }
+  .opcion, .chip { position: relative; display: block; cursor: pointer; border-radius: 2px; }
+  .opcion input, .chip input { position: absolute; inset: 0; width: 100%; height: 100%; margin: 0; opacity: 0; cursor: pointer; }
+  .opcion:has(input:focus-visible), .chip:has(input:focus-visible) { outline: 3px solid var(--foco); outline-offset: 3px; }
+  .opcion span {
+    display: flex; align-items: center; justify-content: center; gap: .4rem; min-height: 3.75rem;
+    padding: .75rem .75rem 1.15rem; background: var(--blanco); color: var(--tinta-papel);
+    font-weight: 600; line-height: 1.2; text-align: center;
+    box-shadow: inset 0 .4rem 0 rgb(0 0 0 / .1);
+    -webkit-mask: conic-gradient(from -45deg at bottom, #0000, #000 1deg 89deg, #0000 90deg) 50% / 14px 100%;
+            mask: conic-gradient(from -45deg at bottom, #0000, #000 1deg 89deg, #0000 90deg) 50% / 14px 100%;
+    transition: background-color .25s, color .25s;
+  }
+  .opcion span svg { display: none; flex: none; width: 1.1rem; height: 1.1rem; }
+  .opcion input:checked + span { background: var(--violeta); color: #fff; }
+  .opcion input:checked + span svg { display: block; }
 
   .cantidad { margin-top: 2rem; }
-  .cantidad legend { display: block; width: 100%; margin-bottom: .75rem; padding: 0; text-align: center; }
-  .chips { display: flex; flex-wrap: wrap; justify-content: center; gap: .5rem; }
-  .chip span { display: block; min-width: 2.75rem; padding: .4rem .95rem; border: 1px solid var(--line); border-radius: 999px; }
-  .chip input:checked + span { background: var(--bloom); border-color: var(--bloom); }
+  .cantidad legend { display: block; width: 100%; padding: 0; margin-bottom: .25rem; text-align: inherit; }
+  .chips { position: relative; display: flex; flex-wrap: wrap; justify-content: center; gap: .5rem; padding-top: .375rem; }
+  .chips::before {
+    content: ""; position: absolute; left: -1rem; right: -1rem; top: .45rem; height: 3px; background: var(--mecate) repeat-x;
+  }
+  .chip span {
+    position: relative; display: block; min-width: 3rem; padding: .7rem .8rem 1.1rem;
+    background: var(--lila); color: var(--tinta-papel);
+    font-family: var(--corte); font-weight: 800; font-size: 1.375rem; line-height: 1; text-align: center;
+    box-shadow: inset 0 .4rem 0 rgb(0 0 0 / .12);
+    -webkit-mask: conic-gradient(from -45deg at bottom, #0000, #000 1deg 89deg, #0000 90deg) 50% / 10px 100%;
+            mask: conic-gradient(from -45deg at bottom, #0000, #000 1deg 89deg, #0000 90deg) 50% / 10px 100%;
+  }
+  .chip input:checked + span { background: var(--violeta); color: #fff; }
 
   .campos { display: grid; gap: 1.25rem; margin-top: 1.75rem; text-align: left; }
   .campos:empty { display: none; }
-  .campo label { display: block; font-size: .9375rem; color: var(--muted); }
+  .campo label { display: block; font-size: .9375rem; color: var(--tinta-2); }
   .campo input {
-    width: 100%; padding: .4rem 0; font: inherit; color: var(--ink); background: transparent;
-    border: 0; border-bottom: 1.5px solid var(--line); border-radius: 0;
+    width: 100%; padding: .45rem 0; font: inherit; color: var(--tinta); background: transparent;
+    border: 0; border-bottom: 2px solid var(--lila); border-radius: 0;
   }
-  .campo input:focus { outline: none; border-bottom-color: var(--jacaranda); box-shadow: 0 1.5px 0 var(--jacaranda); }
-  .campo input[aria-invalid="true"] { border-bottom-color: var(--error); }
+  .campo input:focus { outline: none; border-bottom-color: var(--foco); box-shadow: 0 2px 0 var(--foco); }
+  .campo input[aria-invalid="true"] { border-bottom-color: var(--aviso); }
 
   .boton {
-    display: block; width: 100%; margin-top: 2rem; padding: .95rem 1.5rem; font: inherit; font-weight: 700;
-    color: var(--paper); background: var(--ink); border: 0; border-radius: 999px; cursor: pointer;
+    display: block; width: 100%; margin-top: 1.75rem; padding: 1rem 1.5rem 1.4rem;
+    font: inherit; font-weight: 700; font-size: 1.1875rem; color: var(--noche); background: var(--rosa);
+    border: 0; border-radius: 0; cursor: pointer;
+    box-shadow: inset 0 .45rem 0 rgb(0 0 0 / .1);
+    -webkit-mask: conic-gradient(from -45deg at bottom, #0000, #000 1deg 89deg, #0000 90deg) 50% / 16px 100%;
+            mask: conic-gradient(from -45deg at bottom, #0000, #000 1deg 89deg, #0000 90deg) 50% / 16px 100%;
+    transition: background-color .2s;
   }
-  .boton:disabled { opacity: .6; cursor: progress; }
-  .boton:focus-visible { outline: 2px solid var(--jacaranda); outline-offset: 3px; }
+  .boton:hover { background: #F488AB; }
+  .boton:disabled { opacity: .65; cursor: progress; }
+  .boton:focus-visible { outline: none; box-shadow: inset 0 0 0 3px var(--noche), inset 0 0 0 6px var(--foco); }
   .boton.secundario {
-    display: inline-block; width: auto; margin-top: 1.5rem; padding: .65rem 1.5rem; font-weight: 500;
-    color: var(--jacaranda); background: transparent; border: 1.5px solid var(--jacaranda);
+    display: inline-block; width: auto; margin-top: 1.5rem; padding: .75rem 1.5rem 1.15rem;
+    font-size: 1rem; font-weight: 600; color: var(--tinta-papel); background: var(--lila);
+    -webkit-mask-size: 12px 100%; mask-size: 12px 100%;
   }
+  .boton.secundario:hover { background: #D5C5F1; }
 
-  .nota { margin-top: 1rem; font-size: 1rem; color: var(--muted); }
+  .nota { margin-top: 1rem; font-size: 1rem; color: var(--tinta-2); }
   .nota:empty { display: none; }
-  .mensaje { margin-top: 1rem; color: var(--error); }
+  .mensaje { margin-top: 1rem; color: var(--aviso); font-weight: 600; }
+  .mensaje:empty { display: none; }
 
-  .resumen { margin-top: 1.5rem; }
-  .resumen-titulo { font-family: var(--display); font-size: 1.75rem; line-height: 1.2; }
+  .resumen { margin-top: 1rem; }
+  .resumen-titulo { font-family: var(--voz); font-size: 1.875rem; line-height: 1.2; }
   .resumen-titulo:focus { outline: none; }
   .resumen-texto { margin-top: .75rem; }
 
-  /* Cierre */
-  .cierre { padding-bottom: 1rem; }
-  .firma { margin-top: .25rem; font-family: var(--display); font-size: 2rem; }
-  .completos { margin-top: .5rem; font-size: .9375rem; color: var(--muted); }
+  /* ---------- Cuándo y dónde ---------- */
+  .seccion { margin-top: 6rem; }
+  .seccion > h2 { font-size: clamp(2.25rem, 9vw, 3.25rem); line-height: 1.05; text-align: center; }
+  .seccion .intro { margin: .75rem auto 0; max-width: 34rem; text-align: center; color: var(--tinta-2); }
+  .hojas { display: grid; gap: 3rem; max-width: 56rem; margin: 3rem auto 0; }
+  .hoja { position: relative; color: var(--papel); filter: drop-shadow(0 12px 14px rgb(10 8 32 / .35)); }
+  .hoja::before {
+    content: ""; position: absolute; z-index: 1; left: -2rem; right: -2rem; top: .1rem; height: 3px; background: var(--mecate) repeat-x;
+  }
+  .hoja .orla { display: block; width: 100%; }
+  .hoja-cuerpo {
+    margin-block: -1px; padding: .5rem 2.25rem 1.25rem;
+    background: var(--papel); color: var(--tinta-papel);
+    -webkit-mask:
+      radial-gradient(circle at 50% 50%, #0000 2.6px, #000 3.1px) left top / 22px 14px repeat-y,
+      radial-gradient(circle at 50% 50%, #0000 2.6px, #000 3.1px) right top / 22px 14px repeat-y,
+      linear-gradient(#000 0 0) center / calc(100% - 44px) 100% no-repeat;
+            mask:
+      radial-gradient(circle at 50% 50%, #0000 2.6px, #000 3.1px) left top / 22px 14px repeat-y,
+      radial-gradient(circle at 50% 50%, #0000 2.6px, #000 3.1px) right top / 22px 14px repeat-y,
+      linear-gradient(#000 0 0) center / calc(100% - 44px) 100% no-repeat;
+  }
+  .hoja h3 { font-size: 1.625rem; line-height: 1.15; }
+  .hoja .hora { margin-top: .75rem; font-family: var(--corte); font-weight: 800; font-size: 3.25rem; line-height: 1; color: var(--violeta-papel); }
+  .hoja .hora small { font-size: .45em; letter-spacing: .04em; }
+  .hoja .lugar { margin-top: .75rem; font-weight: 600; font-size: 1.1875rem; line-height: 1.35; }
+  .hoja .direccion { margin-top: .25rem; font-size: 1rem; color: var(--tinta-papel-2); }
+  .hoja .mapa { margin-top: 1rem; }
+  .hoja .mapa a { display: inline-flex; align-items: center; gap: .4rem; padding-block: .35rem; font-weight: 700; color: var(--violeta-papel); }
+  .hoja .mapa svg { width: 1.1rem; height: 1.1rem; flex: none; }
+  .hoja .mapa a:focus-visible { outline-color: var(--violeta-papel); }
+  .vestimenta { margin-top: 3rem; text-align: center; font-size: 1.1875rem; }
+  .vestimenta b { font-family: var(--voz); font-weight: 400; font-size: 1.5rem; }
+
+  /* ---------- Fotos: dos cuerdas en el celular, una en pantallas grandes ---------- */
+  .galeria { --comba: 2rem; margin-top: 2.5rem; }
+  .galeria .colgantes {
+    display: grid; grid-template-columns: 1fr 1fr; column-gap: .75rem; align-items: start;
+    width: min(100vw - 2rem, 26rem); margin-inline: auto;
+  }
+  .galeria .pliego { width: 100%; }
+  .galeria .pliego:nth-child(2) { --hilo: 3rem; }
+  .galeria .pliego:last-child { grid-column: 1 / -1; justify-self: center; width: min(66vw, 17rem); }
+  .cuerda-segunda { position: relative; grid-column: 1 / -1; height: 0; margin: 2rem calc(50% - 50vw) 0; animation: none !important; }
+  .cuerda-segunda .cuerda { top: .25rem; }
+
+  /* Cuerda de banderitas entre la portada y lo que sigue */
+  .tendedero-entre { --comba: 1.5rem; height: 5.5rem; margin-top: 4.5rem; overflow: hidden; }
+  .tendedero-entre .colgantes { gap: .7rem; }
+  .tendedero-entre .bandera { width: 2.75rem; }
+
+  /* ---------- Cierre ---------- */
+  .cierre { margin-top: 6rem; padding-bottom: 4rem; text-align: center; }
+  .tendedero-cierre { --comba: 1rem; height: 6.5rem; }
+  .tendedero-cierre .colgantes { gap: .5rem; }
+  .tendedero-cierre .bandera { width: 3.75rem; }
+  .cierre p { margin-top: .25rem; }
+  .cierre .con-carino { margin-top: 2rem; color: var(--tinta-2); }
+  .firma { font-family: var(--voz); font-size: 2.25rem; line-height: 1.2; }
+  .completos { margin-top: .5rem; font-size: .9375rem; color: var(--tinta-2); text-wrap: balance; }
   .completos:empty { display: none; }
 
-  .sr { position: absolute; width: 1px; height: 1px; margin: -1px; padding: 0; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0; }
-
-  /* Lluvia de flores al confirmar */
+  /* ---------- Lluvia de papel al confirmar ---------- */
   .lluvia { position: fixed; inset: 0; z-index: 10; overflow: hidden; pointer-events: none; }
-  .petalo { position: absolute; top: -40px; animation: caer var(--dur) cubic-bezier(.35, .1, .65, 1) var(--delay) forwards; }
-  .petalo svg { display: block; width: 100%; height: 100%; animation: mecer 1.4s ease-in-out infinite alternate; }
-  @keyframes caer { to { transform: translateY(calc(100vh + 80px)) rotate(var(--giro)); } }
-  @keyframes mecer { from { transform: translateX(-12px); } to { transform: translateX(12px); } }
-  @media (prefers-reduced-motion: reduce) { .opcion span { transition: none; } }
+  .confeti { position: absolute; top: -40px; animation: caer var(--dur) cubic-bezier(.35, .1, .65, 1) var(--retraso) forwards; }
+  .confeti i {
+    display: block; width: var(--w); height: var(--h); background: var(--c);
+    animation: aletear var(--giro) linear infinite;
+  }
+  @keyframes caer { to { transform: translate(var(--deriva), calc(100vh + 80px)); } }
+  @keyframes aletear { to { transform: rotate3d(1, .35, .2, 720deg); } }
+
+  /* ---------- Pantallas grandes ---------- */
+  @media (min-width: 56rem) {
+    .tendedero-cielo { --comba: 1.75rem; height: 6.5rem; }
+    .tendedero-cielo .colgantes { gap: .9rem; }
+    .bandera { width: 4.25rem; }
+    .portada-cuerpo { grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr); align-items: start; gap: 3rem; }
+    /* La cuerda viene desde la orilla de la pantalla; las fotos se quedan en su columna. */
+    .tendedero-fotos { --comba: 2.25rem; margin-top: -.5rem; padding-left: calc(50vw - 50%); margin-right: 0; }
+    .tendedero-fotos .colgantes { gap: .9rem; padding-inline: 0; }
+    .tendedero-fotos .pliego-grande { width: clamp(15rem, 26vw, 23.5rem); }
+    .tendedero-fotos .pliego-chico { width: clamp(4.75rem, 5.8vw, 5.5rem); }
+    .tendedero-fotos .pliego-chico:first-child { --hilo: 4rem; }
+    .tendedero-fotos .pliego-chico:last-child { --hilo: 6rem; }
+    .portada-texto { align-self: center; text-align: left; max-width: 34rem; }
+    .hojas { grid-template-columns: 1fr 1fr; gap: 2rem; }
+    .galeria { --comba: 2.5rem; }
+    .galeria .colgantes { display: flex; justify-content: center; gap: 2rem; width: auto; }
+    .galeria .pliego, .galeria .pliego:last-child { width: clamp(15rem, 22vw, 19rem); }
+    .galeria .pliego:nth-child(2) { --hilo: 0rem; }
+    .cuerda-segunda { display: none; }
+    .tendedero-entre { --comba: 2rem; height: 6rem; }
+    .tendedero-entre .bandera { width: 3.25rem; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .meciendo > * { animation: none; }
+    .pliego img, .pliego .papel, .opcion span { transition: none; }
+  }
 </style>
 </head>
 <body>
+<div class="pagina">
 
-<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
-  <symbol id="flor" viewBox="-10 -10 20 20">
-    <g fill="currentColor">
-      <circle cx="0" cy="-4.6" r="4.4"/>
-      <circle cx="0" cy="-4.6" r="4.4" transform="rotate(72)"/>
-      <circle cx="0" cy="-4.6" r="4.4" transform="rotate(144)"/>
-      <circle cx="0" cy="-4.6" r="4.4" transform="rotate(216)"/>
-      <circle cx="0" cy="-4.6" r="4.4" transform="rotate(288)"/>
-    </g>
-    <circle r="1.8" fill="#fff" fill-opacity=".55"/>
-  </symbol>
-  <symbol id="fronda" viewBox="0 -7 64 14">
-    <path d="M0 0H60" stroke="currentColor" stroke-width=".8" fill="none"/>
-    <g fill="currentColor">
-      <ellipse cx="8" cy="-3" rx="3.4" ry="1.4" transform="rotate(-35 8 -3)"/>
-      <ellipse cx="8" cy="3" rx="3.4" ry="1.4" transform="rotate(35 8 3)"/>
-      <ellipse cx="15" cy="-3" rx="3.4" ry="1.4" transform="rotate(-35 15 -3)"/>
-      <ellipse cx="15" cy="3" rx="3.4" ry="1.4" transform="rotate(35 15 3)"/>
-      <ellipse cx="22" cy="-3" rx="3.3" ry="1.4" transform="rotate(-35 22 -3)"/>
-      <ellipse cx="22" cy="3" rx="3.3" ry="1.4" transform="rotate(35 22 3)"/>
-      <ellipse cx="29" cy="-3" rx="3.2" ry="1.3" transform="rotate(-35 29 -3)"/>
-      <ellipse cx="29" cy="3" rx="3.2" ry="1.3" transform="rotate(35 29 3)"/>
-      <ellipse cx="36" cy="-2.8" rx="3" ry="1.3" transform="rotate(-35 36 -2.8)"/>
-      <ellipse cx="36" cy="2.8" rx="3" ry="1.3" transform="rotate(35 36 2.8)"/>
-      <ellipse cx="43" cy="-2.6" rx="2.8" ry="1.2" transform="rotate(-35 43 -2.6)"/>
-      <ellipse cx="43" cy="2.6" rx="2.8" ry="1.2" transform="rotate(35 43 2.6)"/>
-      <ellipse cx="50" cy="-2.4" rx="2.5" ry="1.1" transform="rotate(-35 50 -2.4)"/>
-      <ellipse cx="50" cy="2.4" rx="2.5" ry="1.1" transform="rotate(35 50 2.4)"/>
-      <ellipse cx="57" cy="-2" rx="2.2" ry="1" transform="rotate(-35 57 -2)"/>
-      <ellipse cx="57" cy="2" rx="2.2" ry="1" transform="rotate(35 57 2)"/>
-      <ellipse cx="61.5" cy="0" rx="2.2" ry="1"/>
-    </g>
-  </symbol>
-</svg>
+<svg class="defs" aria-hidden="true" focusable="false"><defs id="papeles"></defs></svg>
 
 <p class="aviso-demo" id="aviso-demo" hidden>Vista de prueba con datos de ejemplo. Pega la URL de tu Apps Script en API_URL para conectarla a tu hoja.</p>
 
-<main>
-  <header>
-    <svg class="ramo" viewBox="0 0 400 150" aria-hidden="true" focusable="false">
-      <path class="rama" stroke-width="2.4" d="M-10 72 C 55 62, 105 96, 170 84 S 285 40, 410 60"/>
-      <path class="rama" stroke-width="1.3" d="M89 80 C 94 62, 90 46, 84 34"/>
-      <path class="rama" stroke-width="1.3" d="M170 84 C 176 100, 188 112, 200 120"/>
-      <path class="rama" stroke-width="1.3" d="M267 60 C 268 44, 272 32, 280 22"/>
-      <path class="rama" stroke-width="1.3" d="M343 54 C 350 68, 360 78, 370 84"/>
-      <path class="rama" stroke-width="1.3" d="M36 71 C 30 58, 22 50, 12 44"/>
-      <g class="hojas">
-        <use href="#fronda" x="0" y="-5.5" width="50" height="11" transform="translate(54 74) rotate(160)"/>
-        <use href="#fronda" x="0" y="-5.5" width="50" height="11" transform="translate(124 86) rotate(105)"/>
-        <use href="#fronda" x="0" y="-5.5" width="50" height="11" transform="translate(160 85) rotate(-55)"/>
-        <use href="#fronda" x="0" y="-5.5" width="50" height="11" transform="translate(217 72) rotate(75)"/>
-        <use href="#fronda" x="0" y="-5.5" width="50" height="11" transform="translate(250 64) rotate(205)"/>
-        <use href="#fronda" x="0" y="-5.5" width="50" height="11" transform="translate(302 55) rotate(-25)"/>
-      </g>
-      <g id="flores"></g>
-    </svg>
-    <p class="anuncio">Nos casamos</p>
-    <h1 class="nombres"><span>Giovana</span><span class="y">&amp;</span><span>Jesús</span></h1>
-    <p class="fecha" id="fecha"></p>
-    <p class="cuenta" id="cuenta"></p>
-  </header>
+<header class="portada">
+  <div class="tendedero tendedero-cielo" id="cielo" data-focos="64" aria-hidden="true"></div>
 
-  <p class="carga" id="carga" role="status">Cargando tu invitación…</p>
-  <p class="error" id="error" role="alert" hidden></p>
+  <div class="marco portada-cuerpo">
+    <div class="tendedero tendedero-fotos" data-focos="90">
+      <svg class="cuerda" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true"><path class="mecate" d="M0 0Q50 200 100 0"/><path class="torsion" d="M0 0Q50 200 100 0"/></svg>
+      <div class="colgantes meciendo">
+        <button type="button" class="pliego pliego-chico colgado-largo" data-forma="redondo" aria-pressed="false" style="--color: var(--lila); --fx: 50%; --fy: 100%; --ox: 50%; --oy: 50%; --zoom: 1.15; --dur: 4.1s; --retraso: -1.3s">
+          <img src="img/foto-5-480.webp" width="480" height="640" alt="Giovana y Jesús sonríen con lentes de sol en una sala de globos plateados, en Nueva York">
+          <svg class="papel" viewBox="0 0 100 130" aria-hidden="true" focusable="false"></svg>
+        </button>
+        <button type="button" class="pliego pliego-grande" data-forma="medallon" aria-pressed="false" style="--color: var(--blanco); --fx: 52%; --fy: 54%; --zoom: 1.12; --dur: 4.8s; --retraso: -2.2s">
+          <img src="img/foto-1-480.webp" srcset="img/foto-1-480.webp 480w, img/foto-1-960.webp 960w" sizes="(min-width: 56rem) 20rem, 52vw" width="480" height="640" fetchpriority="high"
+               alt="Giovana y Jesús se besan en un mirador de Nueva York con el Empire State al fondo">
+          <svg class="papel" viewBox="0 0 300 400" aria-hidden="true" focusable="false"></svg>
+        </button>
+        <button type="button" class="pliego pliego-chico colgado-largo" data-forma="redondo" aria-pressed="false" style="--color: var(--rosa); --fx: 56%; --fy: 44%; --zoom: 1.7; --dur: 3.7s; --retraso: -.4s">
+          <img src="img/foto-7-480.webp" width="480" height="640" alt="Selfie de Giovana y Jesús en una sala de espejos con vista a Nueva York">
+          <svg class="papel" viewBox="0 0 100 130" aria-hidden="true" focusable="false"></svg>
+        </button>
+      </div>
+    </div>
 
+    <div class="portada-texto">
+      <h1 class="nombres"><span class="linea">Giovana</span> <span class="linea"><span class="amp">&amp;</span> Jesús</span></h1>
+      <p class="anuncio">Nos casamos</p>
+      <p class="fecha" id="fecha"></p>
+      <p class="cuenta" id="cuenta"></p>
+
+      <p class="carga" id="carga" role="status">Cargando tu invitación…</p>
+      <p class="error" id="error" role="alert" hidden></p>
+    </div>
+  </div>
+</header>
+
+<main class="marco">
+  <div class="tendedero tendedero-entre" id="entre" data-focos="72" aria-hidden="true"></div>
+
+  <!-- Confirmación de asistencia: estructura, textos y orden idénticos a la versión original. Solo cambia el estilo. -->
   <div id="contenido" hidden>
     <section class="saludo" aria-labelledby="nombre-invitado">
-      <div class="separador" aria-hidden="true"><svg viewBox="-10 -10 20 20"><use href="#flor" x="-10" y="-10" width="20" height="20"/></svg></div>
       <h2 class="invitado" id="nombre-invitado"></h2>
       <p>Nos encantaría celebrar este día contigo.</p>
       <p id="texto-cupo"></p>
     </section>
 
-    <section id="detalles" aria-label="Detalles del evento" hidden>
-      <div class="separador" aria-hidden="true"><svg viewBox="-10 -10 20 20"><use href="#flor" x="-10" y="-10" width="20" height="20"/></svg></div>
-      <div class="lugares" id="lugares"></div>
+    <section class="seccion" id="detalles" aria-label="Detalles del evento" hidden>
+      <h2 aria-hidden="true">Cuándo y dónde</h2>
+      <div class="hojas" id="lugares"></div>
       <p class="vestimenta" id="vestimenta" hidden></p>
     </section>
 
-    <section aria-labelledby="titulo-confirmacion">
-      <div class="separador" aria-hidden="true"><svg viewBox="-10 -10 20 20"><use href="#flor" x="-10" y="-10" width="20" height="20"/></svg></div>
+    <section class="seccion rsvp" aria-labelledby="titulo-confirmacion">
       <h2 class="titulo" id="titulo-confirmacion">¿Nos acompañas?</h2>
 
       <form id="formulario" novalidate hidden>
         <fieldset class="opciones">
           <legend class="sr">¿Asistirás a la boda?</legend>
-          <label class="opcion"><input type="radio" name="asiste" value="Sí"><span>Sí, ahí estaré</span></label>
-          <label class="opcion"><input type="radio" name="asiste" value="No"><span>No podré asistir</span></label>
+          <label class="opcion"><input type="radio" name="asiste" value="Sí"><span><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M4 10.5l4 4 8-9" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>Sí, ahí estaré</span></label>
+          <label class="opcion"><input type="radio" name="asiste" value="No"><span><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M4 10.5l4 4 8-9" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>No podré asistir</span></label>
         </fieldset>
 
         <div id="bloque-acompanantes" hidden>
@@ -282,13 +461,41 @@
     </section>
   </div>
 
-  <footer class="cierre">
-    <div class="separador" aria-hidden="true"><svg viewBox="-10 -10 20 20"><use href="#flor" x="-10" y="-10" width="20" height="20"/></svg></div>
-    <p>Con cariño,</p>
-    <p class="firma">Giovana y Jesús</p>
-    <p class="completos" id="completos"></p>
-  </footer>
+  <section class="seccion" aria-labelledby="titulo-fotos">
+    <h2 id="titulo-fotos">Un poco de nosotros</h2>
+    <p class="intro">Toca cada papel para levantarlo y ver la foto.</p>
+      <div class="tendedero galeria" data-focos="110">
+        <svg class="cuerda" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true"><path class="mecate" d="M0 0Q50 200 100 0"/><path class="torsion" d="M0 0Q50 200 100 0"/></svg>
+        <div class="colgantes meciendo">
+          <button type="button" class="pliego" data-forma="medallon" aria-pressed="false" style="--color: var(--lila); --fx: 62%; --fy: 58%; --zoom: 1.08; --dur: 4.4s; --retraso: -1.1s">
+            <img src="img/foto-8-480.webp" srcset="img/foto-8-480.webp 480w, img/foto-8-960.webp 960w" sizes="(min-width: 56rem) 19rem, 74vw" width="480" height="640" loading="lazy"
+                 alt="Giovana y Jesús se besan junto a un ventanal con el edificio Chrysler al fondo, en Nueva York">
+            <svg class="papel" viewBox="0 0 300 400" aria-hidden="true" focusable="false"></svg>
+          </button>
+          <button type="button" class="pliego colgado-largo" data-forma="medallon" aria-pressed="false" style="--color: var(--blanco); --fx: 50%; --fy: 68%; --zoom: 1.12; --dur: 3.9s; --retraso: -2.6s">
+            <img src="img/foto-9-480.webp" srcset="img/foto-9-480.webp 480w, img/foto-9-960.webp 960w" sizes="(min-width: 56rem) 19rem, 74vw" width="480" height="640" loading="lazy"
+                 alt="Giovana y Jesús abrazados y sonrientes en una sala de globos plateados, en Nueva York">
+            <svg class="papel" viewBox="0 0 300 400" aria-hidden="true" focusable="false"></svg>
+          </button>
+          <span class="cuerda-segunda" data-focos="110" aria-hidden="true"><svg class="cuerda" viewBox="0 0 100 100" preserveAspectRatio="none"><path class="mecate" d="M0 0Q50 200 100 0"/><path class="torsion" d="M0 0Q50 200 100 0"/></svg></span>
+          <button type="button" class="pliego" data-forma="medallon" aria-pressed="false" style="--color: var(--rosa); --fx: 52%; --fy: 50%; --zoom: 1.1; --dur: 4.6s; --retraso: -.7s">
+            <img src="img/foto-6-480.webp" srcset="img/foto-6-480.webp 480w, img/foto-6-960.webp 960w" sizes="(min-width: 56rem) 19rem, 74vw" width="480" height="640" loading="lazy"
+                 alt="Selfie de Giovana y Jesús en una sala de espejos y vidrio con la ciudad de Nueva York de fondo">
+            <svg class="papel" viewBox="0 0 300 400" aria-hidden="true" focusable="false"></svg>
+          </button>
+        </div>
+      </div>
+  </section>
 </main>
+
+<footer class="cierre marco">
+  <div class="tendedero tendedero-cierre" id="cierre-banderas" aria-hidden="true"></div>
+  <p class="con-carino">Con cariño,</p>
+  <p class="firma">Giovana y Jesús</p>
+  <p class="completos" id="completos"></p>
+</footer>
+
+</div>
 
 <script>
   // ===================== CONFIGURA AQUÍ =====================
@@ -302,7 +509,7 @@
       { titulo: 'Ceremonia Religiosa', hora: '6:00 p.m.', lugar: 'Templo de Nuestra Señora del Carmen', direccion: 'Del Carmen 116, Zona Centro, 44100 Guadalajara, Jal.', mapa: 'https://maps.app.goo.gl/FfFfnP4z1nLsrkTRA' },
       { titulo: 'Ceremonia Civil & Recepción', hora: '8:30 p.m.', lugar: 'Jardín Getsemaní', direccion: 'C. Clio 2350, Fovissste Estadio, 44240 Guadalajara, Jal.', mapa: 'https://maps.app.goo.gl/tzhSDMaziN4mZt3Y7' }
     ],
-    vestimenta: '' // ej. 'Formal'
+    vestimenta: 'Formal' // ej. 'Formal'
   };
   // ==========================================================
 
@@ -324,30 +531,46 @@
     { titulo: 'Ceremonia Civil & Recepción', hora: '8:30 p.m.', lugar: 'Jardín Getsemaní', direccion: 'C. Clio 2350, Fovissste Estadio, 44240 Guadalajara, Jal.', mapa: 'https://maps.app.goo.gl/tzhSDMaziN4mZt3Y7' }
   ];
 
-  // Flores del ramo de jacaranda: [x, y, tamaño, tono, giro]
-  const FLORES = [
-    [84, 32, 15, 1, 0], [96, 28, 13, 2, 20], [74, 26, 12, 3, 40], [90, 42, 12, 3, 10],
-    [78, 41, 11, 2, 50], [86, 18, 11, 1, 30], [100, 40, 10, 1, 15], [69, 35, 9, 2, 0],
-    [200, 120, 14, 2, 10], [212, 128, 12, 1, 40], [189, 129, 11, 3, 20], [209, 111, 11, 3, 0], [197, 139, 9, 1, 30],
-    [282, 20, 15, 1, 25], [294, 27, 12, 3, 5], [270, 14, 12, 2, 45], [276, 31, 11, 2, 15],
-    [291, 10, 10, 3, 35], [302, 17, 9, 1, 0], [265, 26, 9, 1, 20],
-    [372, 86, 14, 2, 0], [384, 79, 12, 1, 30], [362, 95, 11, 3, 15], [381, 97, 10, 3, 40], [358, 79, 9, 1, 10],
-    [12, 42, 13, 1, 20], [23, 36, 11, 3, 0], [5, 31, 10, 2, 35], [19, 52, 9, 2, 10],
-    [140, 118, 7, 3, 30], [244, 104, 6, 2, 10], [322, 130, 7, 1, 50], [52, 114, 6, 3, 20]
+  // Banderitas de la cuerda superior y del cierre: motivo y color de papel.
+  const CIELO = [
+    ['flor', 'rosa'], ['rombos', 'blanco'], ['corazon', 'violeta'], ['sol', 'lila'],
+    ['flor', 'blanco'], ['rombos', 'rosa'], ['corazon', 'lila'], ['sol', 'violeta']
   ];
+  const CIERRE = [['flor', 'lila'], ['letra-G', 'blanco'], ['corazon', 'rosa'], ['letra-J', 'blanco'], ['flor', 'lila']];
 
   const DIAS = ['domingo', 'lunes', 'martes', 'miércoles', 'jueves', 'viernes', 'sábado'];
   const MESES = ['enero', 'febrero', 'marzo', 'abril', 'mayo', 'junio', 'julio',
                  'agosto', 'septiembre', 'octubre', 'noviembre', 'diciembre'];
 
+  // Contornos de papel y piezas fijas de SVG.
+  const P_BANDERA = dientes(100, 120, 106, 10);
+  const P_MEDALLON = dientes(300, 400, 382, 20);
+  const P_REDONDO = dientes(100, 130, 116, 10);
+  const ORLA_ARRIBA = '<svg class="orla" height="34" aria-hidden="true" focusable="false"><rect width="100%" height="34" fill="currentColor" mask="url(#m-orla-arriba)"/><rect width="100%" height="8" fill="#000" fill-opacity=".12"/></svg>';
+  const ORLA_ABAJO = '<svg class="orla" height="36" aria-hidden="true" focusable="false"><rect width="100%" height="36" fill="currentColor" mask="url(#m-orla-abajo)"/></svg>';
+  const ICONO_MAPA = '<svg viewBox="0 0 20 20" aria-hidden="true" focusable="false"><path d="M10 18s-5.5-5.1-5.5-9.3a5.5 5.5 0 0 1 11 0C15.5 12.9 10 18 10 18z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><circle cx="10" cy="8.6" r="2" fill="currentColor"/></svg>';
+
   const $ = id => document.getElementById(id);
+  const MOVIMIENTO = !window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
   let inv = null;            // datos de la invitación
   let token = '';
   let nombresEscritos = [];  // conserva lo escrito al cambiar la cantidad
 
-  pintarRamo();
+  cortarPapeles();
+  colgarBanderas($('cielo'), Array.from({ length: 24 }, (_, i) => CIELO[i % CIELO.length]));
+  colgarBanderas($('entre'), Array.from({ length: 30 }, (_, i) => CIELO[(i + 3) % CIELO.length]));
+  colgarBanderas($('cierre-banderas'), CIERRE);
+  vestirPliegos();
+  colocarColgantes();
   iniciar();
+
+  document.fonts.ready.then(colocarColgantes);
+  let esperaAjuste;
+  window.addEventListener('resize', () => {
+    clearTimeout(esperaAjuste);
+    esperaAjuste = setTimeout(colocarColgantes, 120);
+  });
 
   document.querySelectorAll('input[name="asiste"]').forEach(radio =>
     radio.addEventListener('change', () => { limpiarMensaje(); actualizarBloque(); }));
@@ -418,7 +641,7 @@
     $('error').hidden = false;
   }
 
-  /* ---------- Detalles del evento ---------- */
+  /* ---------- Cuándo y dónde ---------- */
 
   function pintarLugares() {
     let lugares = EVENTO.lugares.filter(l => l.lugar);
@@ -426,27 +649,41 @@
 
     const contenedor = $('lugares');
     contenedor.replaceChildren();
-    lugares.forEach(l => {
-      const bloque = document.createElement('div');
-      bloque.className = 'lugar';
-      agregar(bloque, 'h3', l.titulo);
-      if (l.hora) agregar(bloque, 'p', l.hora, 'hora');
-      agregar(bloque, 'p', l.lugar);
-      if (l.direccion) agregar(bloque, 'p', l.direccion, 'direccion');
+    lugares.forEach((l, i) => {
+      const hoja = document.createElement('article');
+      hoja.className = 'hoja';
+      hoja.style.setProperty('--papel', i % 2 ? 'var(--lila)' : 'var(--blanco)');
+      hoja.insertAdjacentHTML('afterbegin', ORLA_ARRIBA);
+
+      const cuerpo = document.createElement('div');
+      cuerpo.className = 'hoja-cuerpo';
+      agregar(cuerpo, 'h3', l.titulo);
+      if (l.hora) {
+        const m = /^(\d{1,2}:\d{2})\s*(.*)$/.exec(l.hora);
+        const hora = agregar(cuerpo, 'p', m ? m[1] : l.hora, 'hora');
+        if (m && m[2]) { hora.append(' '); agregar(hora, 'small', m[2]); }
+      }
+      agregar(cuerpo, 'p', l.lugar, 'lugar');
+      if (l.direccion) agregar(cuerpo, 'p', l.direccion, 'direccion');
       if (l.mapa) {
         const enlace = document.createElement('a');
         enlace.href = l.mapa;
         enlace.target = '_blank';
         enlace.rel = 'noopener';
-        enlace.textContent = 'Cómo llegar';
-        agregar(bloque, 'p', '').appendChild(enlace);
+        enlace.innerHTML = ICONO_MAPA;
+        enlace.append('Cómo llegar');
+        agregar(cuerpo, 'p', '', 'mapa').appendChild(enlace);
       }
-      contenedor.appendChild(bloque);
+      hoja.appendChild(cuerpo);
+      hoja.insertAdjacentHTML('beforeend', ORLA_ABAJO);
+      contenedor.appendChild(hoja);
     });
 
     if (EVENTO.vestimenta) {
-      $('vestimenta').textContent = `Código de vestimenta: ${EVENTO.vestimenta}`;
-      $('vestimenta').hidden = false;
+      const v = $('vestimenta');
+      v.textContent = 'Código de vestimenta: ';
+      agregar(v, 'b', EVENTO.vestimenta);
+      v.hidden = false;
     }
     $('detalles').hidden = !lugares.length;
   }
@@ -561,7 +798,7 @@
       inv.acompanantes = r.acompanantes || [];
       nombresEscritos = [...inv.acompanantes];
       mostrarResumen(true);
-      if (r.asiste === 'Sí') lluviaDeFlores();
+      if (r.asiste === 'Sí') lluviaDePapel();
     } catch (err) {
       mostrarMensaje('No pudimos enviar tu respuesta. Revisa tu conexión e inténtalo de nuevo.');
     } finally {
@@ -616,41 +853,192 @@
   function mostrarMensaje(texto) { $('mensaje').textContent = texto; }
   function limpiarMensaje() { $('mensaje').textContent = ''; }
 
-  /* ---------- Ilustración ---------- */
+  /* ---------- Papel picado ---------- */
 
-  function pintarRamo() {
-    const grupo = $('flores');
-    FLORES.forEach(([x, y, tam, tono, giro]) => {
-      const flor = document.createElementNS('http://www.w3.org/2000/svg', 'use');
-      flor.setAttribute('href', '#flor');
-      flor.setAttribute('x', x - tam / 2);
-      flor.setAttribute('y', y - tam / 2);
-      flor.setAttribute('width', tam);
-      flor.setAttribute('height', tam);
-      flor.setAttribute('class', `c${tono}`);
-      flor.setAttribute('transform', `rotate(${giro} ${x} ${y})`);
-      grupo.appendChild(flor);
+  // Cada forma de papel se corta con una máscara: blanco es papel, negro es calado.
+  function cortarPapeles() {
+    const orlaBandera = () => {
+      let s = '';
+      for (let x = 14; x <= 86; x += 9) s += rombo(x, 16, 2.6) + rombo(x, 96, 2.6);
+      for (let y = 26; y <= 86; y += 10) s += circulo(7, y, 1.5) + circulo(93, y, 1.5);
+      return s;
+    };
+    const esquinas = circulo(24, 30, 2.4) + circulo(76, 30, 2.4) + circulo(24, 82, 2.4) + circulo(76, 82, 2.4);
+    const corazon = 'M50 84C30 70 20 58 20 46C20 36 28 30 36 30C43 30 48 35 50 40C52 35 57 30 64 30C72 30 80 36 80 46C80 58 70 70 50 84Z';
+
+    const motivos = {
+      flor: [
+        orlaBandera() + esquinas + repetir(8, k => `<ellipse cx="50" cy="41" rx="5" ry="11" transform="rotate(${k * 45} 50 56)"/>`),
+        circulo(50, 56, 5.5),
+        circulo(50, 56, 2)
+      ],
+      corazon: [
+        orlaBandera() + `<path d="${corazon}"/>`,
+        `<path d="${corazon}" transform="translate(25 29) scale(.5)"/><rect x="49" y="32" width="2" height="50"/><rect x="21" y="49" width="58" height="2"/>`,
+        circulo(50, 50, 2)
+      ],
+      rombos: [
+        orlaBandera() + [30, 50, 70].map(x => [36, 56, 76].map(y => rombo(x, y, 7)).join('')).join('')
+          + rombo(40, 46, 2.5) + rombo(60, 46, 2.5) + rombo(40, 66, 2.5) + rombo(60, 66, 2.5),
+        '', ''
+      ],
+      sol: [
+        orlaBandera() + esquinas + circulo(50, 56, 23),
+        circulo(50, 56, 15) + repetir(8, k => `<rect x="49" y="31" width="2" height="11" transform="rotate(${k * 45} 50 56)"/>`),
+        enElipse(50, 56, 9, 9, 8, (x, y) => circulo(x, y, 2.6)) + circulo(50, 56, 2.4)
+      ],
+      'letra-G': [orlaBandera() + letra('G'), '', ''],
+      'letra-J': [orlaBandera() + letra('J'), '', '']
+    };
+
+    let defs = '';
+    for (const [nombre, capas] of Object.entries(motivos)) defs += mascara(`m-${nombre}`, 100, 120, ...capas);
+
+    const flor5 = (cx, cy) => repetir(5, k => {
+      const a = k / 5 * Math.PI * 2 - Math.PI / 2;
+      return circulo(cx + 6.5 * Math.cos(a), cy + 6.5 * Math.sin(a), 4.4);
+    });
+    const esquinasPliego = [[38, 54], [262, 54], [38, 336], [262, 336]];
+    let bordePliego = '';
+    for (let x = 20; x <= 280; x += 13) bordePliego += rombo(x, 26, 3.4) + rombo(x, 362, 3.4);
+    for (let y = 42; y <= 346; y += 12) bordePliego += circulo(12, y, 2.3) + circulo(288, y, 2.3);
+    defs += mascara('m-medallon', 300, 400,
+      bordePliego
+        + '<ellipse cx="150" cy="192" rx="98" ry="126"/>'
+        + enElipse(150, 192, 98, 126, 46, (x, y) => circulo(x, y, 8.5))
+        + enElipse(150, 192, 118, 146, 44, (x, y) => circulo(x, y, 2.6))
+        + esquinasPliego.map(([x, y]) => flor5(x, y)).join(''),
+      esquinasPliego.map(([x, y]) => circulo(x, y, 3.2)).join(''),
+      esquinasPliego.map(([x, y]) => circulo(x, y, 1.4)).join(''));
+
+    let bordeRedondo = '';
+    for (let x = 12; x <= 88; x += 9.5) bordeRedondo += rombo(x, 11, 2.3) + rombo(x, 105, 2.3);
+    defs += mascara('m-redondo', 100, 130,
+      bordeRedondo + circulo(50, 58, 29)
+        + enElipse(50, 58, 29, 29, 18, (x, y) => circulo(x, y, 4.6))
+        + enElipse(50, 58, 39, 39, 24, (x, y) => circulo(x, y, 1.4)), '', '');
+
+    // Debajo del doblez el papel de los pliegos es opaco, para que la foto solo se vea por los calados.
+    defs += '<clipPath id="c-medallon"><rect y="12" width="300" height="400"/></clipPath><clipPath id="c-redondo"><rect y="9" width="100" height="130"/></clipPath>';
+
+    // Orlas de las hojas de "Cuándo y dónde": se repiten a lo ancho.
+    defs += `<pattern id="pat-rombos" width="18" height="12" patternUnits="userSpaceOnUse"><path d="M9 1L14 6L9 11L4 6Z" fill="#000"/></pattern>
+      <pattern id="pat-dientes" width="16" height="12" patternUnits="userSpaceOnUse"><path d="M0 0H16L8 12Z" fill="#fff"/></pattern>
+      <mask id="m-orla-arriba"><rect width="4000" height="34" fill="#fff"/><rect y="12" width="4000" height="12" fill="url(#pat-rombos)"/></mask>
+      <mask id="m-orla-abajo"><rect width="4000" height="24" fill="#fff"/><rect y="0" width="4000" height="12" fill="url(#pat-rombos)"/><rect y="24" width="4000" height="12" fill="url(#pat-dientes)"/></mask>`;
+    // Las filas de los patrones caen en múltiplos de 12 para que ningún calado quede partido.
+
+    $('papeles').innerHTML = defs;
+  }
+
+  function colgarBanderas(contenedor, lista) {
+    const fila = document.createElement('div');
+    fila.className = 'colgantes meciendo';
+    lista.forEach(([motivo, color], i) => {
+      const b = document.createElement('span');
+      b.className = 'bandera';
+      b.style.cssText = `color:var(--${color});--dur:${(3.2 + (i * .37) % 1.6).toFixed(2)}s;--retraso:${(-(i * .53) % 3).toFixed(2)}s`;
+      b.innerHTML = `<svg viewBox="0 0 100 120" focusable="false"><path d="${P_BANDERA}" fill="currentColor" fill-opacity=".9" mask="url(#m-${motivo})"/><rect width="100" height="8" fill="#000" fill-opacity=".14"/></svg>`;
+      fila.appendChild(b);
+    });
+    contenedor.innerHTML = '<svg class="cuerda" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true"><path class="mecate" d="M0 0Q50 200 100 0"/><path class="torsion" d="M0 0Q50 200 100 0"/></svg>';
+    contenedor.appendChild(fila);
+  }
+
+  function vestirPliegos() {
+    document.querySelectorAll('.pliego').forEach(pliego => {
+      const redondo = pliego.dataset.forma === 'redondo';
+      const [ancho, ruta, forma, doblez] = redondo ? [100, P_REDONDO, 'redondo', 9] : [300, P_MEDALLON, 'medallon', 12];
+      pliego.querySelector('.papel').innerHTML =
+        `<path d="${ruta}" fill="currentColor" fill-opacity=".82" mask="url(#m-${forma})"/>` +
+        `<path d="${ruta}" fill="currentColor" mask="url(#m-${forma})" clip-path="url(#c-${forma})"/>` +
+        `<rect width="${ancho}" height="${doblez}" fill="#000" fill-opacity=".14"/>`;
+      // La foto lleva la misma orilla en dientes que su papel.
+      const silueta = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none"><path d="${dientes(100, 100, redondo ? 90 : 95, redondo ? 10 : 20)}"/></svg>`;
+      pliego.style.setProperty('--silueta', `url("data:image/svg+xml,${encodeURIComponent(silueta)}")`);
+      const foto = pliego.querySelector('img');
+      const marco = document.createElement('span');
+      marco.className = 'foto';
+      foto.replaceWith(marco);
+      marco.appendChild(foto);
+      pliego.setAttribute('aria-label', `Levantar el papel picado para ver la foto: ${foto.alt}`);
+      pliego.addEventListener('click', () => {
+        pliego.setAttribute('aria-pressed', String(pliego.getAttribute('aria-pressed') !== 'true'));
+      });
     });
   }
 
-  function lluviaDeFlores() {
-    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  // Cada colgante baja según la curva de su cuerda: y = comba · 4t(1 − t).
+  function colocarColgantes() {
+    document.querySelectorAll('[data-focos]').forEach(prenderFocos);
+    document.querySelectorAll('.tendedero').forEach(tendedero => {
+      const caja = tendedero.getBoundingClientRect();
+      if (!caja.width) return;
+      tendedero.querySelectorAll(':scope > .colgantes > *').forEach(el => {
+        const c = el.getBoundingClientRect();
+        const t = (c.left + c.width / 2 - caja.left) / caja.width;
+        el.style.setProperty('--k', Math.max(0, 4 * t * (1 - t)).toFixed(3));
+      });
+    });
+  }
+
+  // Foquitos repartidos a lo largo de la cuerda (data-focos = separación aproximada en px).
+  function prenderFocos(cuerda) {
+    cuerda.querySelectorAll(':scope > .foco').forEach(f => f.remove());
+    const ancho = cuerda.getBoundingClientRect().width;
+    if (!ancho) return;
+    const n = Math.max(3, Math.round(ancho / Number(cuerda.dataset.focos)));
+    const focos = document.createDocumentFragment();
+    for (let i = 0; i < n; i++) {
+      const t = (i + .5) / n;
+      const foco = document.createElement('span');
+      foco.className = 'foco';
+      foco.style.cssText = `--x:${(t * 100).toFixed(2)}%;--k:${(4 * t * (1 - t)).toFixed(3)}`;
+      focos.appendChild(foco);
+    }
+    cuerda.prepend(focos);
+  }
+
+  function lluviaDePapel() {
+    if (!MOVIMIENTO) return;
+    const colores = ['--blanco', '--lila', '--violeta', '--rosa'];
     const lluvia = document.createElement('div');
     lluvia.className = 'lluvia';
     lluvia.setAttribute('aria-hidden', 'true');
-    for (let i = 0; i < 32; i++) {
-      const flor = document.createElement('span');
-      const tam = 12 + Math.random() * 14;
-      flor.className = `petalo c${(i % 3) + 1}`;
-      flor.style.cssText =
-        `left:${(Math.random() * 100).toFixed(1)}%;width:${tam.toFixed(0)}px;height:${tam.toFixed(0)}px;` +
-        `--dur:${(4 + Math.random() * 3).toFixed(2)}s;--delay:${(Math.random() * 1.5).toFixed(2)}s;` +
-        `--giro:${Math.round(Math.random() * 540 - 270)}deg`;
-      flor.innerHTML = '<svg viewBox="-10 -10 20 20"><use href="#flor" x="-10" y="-10" width="20" height="20"></use></svg>';
-      lluvia.appendChild(flor);
+    for (let i = 0; i < 40; i++) {
+      const pieza = document.createElement('span');
+      pieza.className = 'confeti';
+      pieza.style.cssText =
+        `left:${(Math.random() * 100).toFixed(1)}%;--dur:${(3.6 + Math.random() * 2.6).toFixed(2)}s;` +
+        `--retraso:${(Math.random() * 1.2).toFixed(2)}s;--deriva:${Math.round(Math.random() * 120 - 60)}px;` +
+        `--w:${Math.round(10 + Math.random() * 10)}px;--h:${Math.round(12 + Math.random() * 12)}px;` +
+        `--c:var(${colores[i % colores.length]});--giro:${(1.2 + Math.random() * 1.4).toFixed(2)}s`;
+      pieza.appendChild(document.createElement('i'));
+      lluvia.appendChild(pieza);
     }
     document.body.appendChild(lluvia);
-    setTimeout(() => lluvia.remove(), 9000);
+    setTimeout(() => lluvia.remove(), 8000);
+  }
+
+  // Geometría de los calados
+  function r1(n) { return Math.round(n * 10) / 10; }
+  function repetir(n, fn) { let s = ''; for (let k = 0; k < n; k++) s += fn(k); return s; }
+  function rombo(cx, cy, s) { return `<path d="M${r1(cx)} ${r1(cy - s)}L${r1(cx + s)} ${r1(cy)}L${r1(cx)} ${r1(cy + s)}L${r1(cx - s)} ${r1(cy)}Z"/>`; }
+  function circulo(cx, cy, r) { return `<circle cx="${r1(cx)}" cy="${r1(cy)}" r="${r}"/>`; }
+  function letra(ch) { return `<text x="50" y="81" text-anchor="middle" font-family="Big Shoulders Stencil" font-weight="900" font-size="66">${ch}</text>`; }
+  function enElipse(cx, cy, rx, ry, n, fn) {
+    return repetir(n, k => { const a = k / n * Math.PI * 2; return fn(cx + rx * Math.cos(a), cy + ry * Math.sin(a)); });
+  }
+  function mascara(id, ancho, alto, huecos, islas = '', huecos2 = '') {
+    return `<mask id="${id}" maskUnits="userSpaceOnUse" x="0" y="0" width="${ancho}" height="${alto}">` +
+      `<rect width="${ancho}" height="${alto}" fill="#fff"/><g fill="#000">${huecos}</g><g fill="#fff">${islas}</g><g fill="#000">${huecos2}</g></mask>`;
+  }
+  // Contorno de papel con orilla en dientes: cuerpo recto y picos hasta "alto".
+  function dientes(ancho, alto, cuerpo, n) {
+    const paso = ancho / n;
+    let d = `M0 0H${ancho}V${cuerpo}`;
+    for (let i = 0; i < n; i++) d += `L${r1(ancho - paso * (i + .5))} ${alto}L${r1(ancho - paso * (i + 1))} ${cuerpo}`;
+    return d + 'Z';
   }
 
   /* ---------- Utilidades ---------- */

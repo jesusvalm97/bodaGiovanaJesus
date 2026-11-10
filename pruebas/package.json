@@ -1,0 +1,11 @@
+{
+  "name": "pruebas-invitacion",
+  "private": true,
+  "description": "Prueba de equivalencia: la confirmación de asistencia debe comportarse igual que en la versión original.",
+  "scripts": {
+    "test": "node equivalencia.js"
+  },
+  "devDependencies": {
+    "puppeteer-core": "23.11.1"
+  }
+}

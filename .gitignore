@@ -1,2 +1,12 @@
 .claude/
-.impeccable/
+
+# Archivos locales de Impeccable (la carpeta .impeccable/ sí se versiona;
+# mocks/, questions/ y review/ traen su propio .gitignore)
+.impeccable/config.local.json
+.impeccable/hook.cache.json
+
+# Fotos originales en alta resolución: solo locales. La página usa las versiones de img/.
+fotos/
+
+# Dependencias de la prueba de equivalencia
+pruebas/node_modules/
